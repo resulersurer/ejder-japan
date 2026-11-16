@@ -1,0 +1,1 @@
+module.exports = { content: ['./src/**/*.{html,ts}'], theme: { extend: { colors: { sumi:'#111827', washi:'#FAF8F5', torii:'#B91C1C', toriiDark:'#991B1B', gold:'#B45309', stoneWarm:'#F3EFEA' }, fontFamily: { serif:['"Playfair Display"','"Noto Serif JP"','serif'], sans:['"Plus Jakarta Sans"','sans-serif'], jp:['"Noto Serif JP"','serif'] } } } };

@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.angular/
+out-tsc/
+.vercel/
+.env*
+!.env.example
+npm-debug.log*
