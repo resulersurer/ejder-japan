@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJDER JAPAN株式会社 | Japan Destination Management Company (DMC)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Serif JP, Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sumi: '#111827',
+                        washi: '#FAF8F5',
+                        torii: '#B91C1C',
+                        toriiDark: '#991B1B',
+                        gold: '#B45309',
+                        stoneWarm: '#F3EFEA'
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', '"Noto Serif JP"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        jp: ['"Noto Serif JP"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Özel Kaydırma Çubuğu ve İnce Dokunuşlar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF8F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D1C7B7;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #B91C1C;
+        }
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(17, 24, 39, 0.90) 0%, rgba(17, 24, 39, 0.68) 55%, rgba(17, 24, 39, 0.35) 100%);
+        }
+        @media (max-width: 768px) {
+            .hero-gradient {
+                background: linear-gradient(to bottom, rgba(17, 24, 39, 0.85) 0%, rgba(17, 24, 39, 0.78) 100%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-washi text-sumi font-sans antialiased selection:bg-torii selection:text-white">
+
+    <!-- ÜST NAVİGASYON (NAVBAR) -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-washi/95 backdrop-blur-md border-b border-stone-200/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Marka Logosu -->
+                <a href="#top" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-torii flex items-center justify-center text-white font-jp font-bold text-lg shadow-sm group-hover:bg-toriiDark transition-colors">
+                        龍
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif font-bold text-xl tracking-wider text-sumi leading-none">EJDER JAPAN</span>
+                        <span class="font-jp text-[11px] tracking-[0.2em] text-stone-500 mt-1">株式会社 • TOKYO DMC</span>
+                    </div>
+                </a>
+
+                <!-- Masaüstü Menü -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-stone-700">
+                    <a href="#about" class="hover:text-torii transition-colors" data-i18n="nav_about">Kurumsal</a>
+                    <a href="#services" class="hover:text-torii transition-colors" data-i18n="nav_services">B2B Hizmetler</a>
+                    <a href="#itineraries" class="hover:text-torii transition-colors" data-i18n="nav_itineraries">Örnek Rotalar</a>
+                    <a href="#why-us" class="hover:text-torii transition-colors" data-i18n="nav_why">Neden Ejder Japan?</a>
+                    <a href="#kaisha-gaiyo" class="hover:text-torii transition-colors" data-i18n="nav_profile">Şirket Künyesi</a>
+                </nav>
+
+                <!-- Sağ Kontroller: Dil Değiştirici + Teklif Butonu -->
+                <div class="flex items-center gap-3">
+                    <!-- TR / EN Dil Seçici -->
+                    <div class="flex items-center bg-stone-200/80 p-1 rounded-xl border border-stone-300/60" role="group" aria-label="Language Switcher">
+                        <button id="btn-tr" onclick="setLanguage('tr')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-sumi text-white shadow-sm">
+                            TR
+                        </button>
+                        <button id="btn-en" onclick="setLanguage('en')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-stone-600 hover:text-sumi">
+                            EN
+                        </button>
+                    </div>
+
+                    <a href="#quote" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-torii hover:bg-toriiDark text-white text-sm font-semibold shadow-sm transition-all" data-i18n="nav_cta">
+                        Teklif Al
+                    </a>
+
+                    <!-- Mobil Menü Butonu -->
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl text-stone-700 hover:bg-stone-200/70 focus:outline-none" aria-label="Menü">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobil Açılır Menü -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-washi border-b border-stone-200 px-4 pt-2 pb-6 space-y-2 shadow-lg">
+            <a href="#about" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-medium text-stone-800 hover:bg-stoneWarm" data-i18n="nav_about">Kurumsal</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-medium text-stone-800 hover:bg-stoneWarm" data-i18n="nav_services">B2B Hizmetler</a>
+            <a href="#itineraries" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-medium text-stone-800 hover:bg-stoneWarm" data-i18n="nav_itineraries">Örnek Rotalar</a>
+            <a href="#why-us" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-medium text-stone-800 hover:bg-stoneWarm" data-i18n="nav_why">Neden Ejder Japan?</a>
+            <a href="#kaisha-gaiyo" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-medium text-stone-800 hover:bg-stoneWarm" data-i18n="nav_profile">Şirket Künyesi</a>
+            <div class="pt-2">
+                <a href="#quote" onclick="toggleMobileMenu()" class="block w-full text-center px-5 py-3.5 rounded-xl bg-torii text-white font-semibold shadow-sm" data-i18n="nav_cta">
+                    Teklif Al
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO BÖLÜMÜ -->
+    <section id="top" class="relative pt-20 min-h-[88vh] flex items-center overflow-hidden">
+        <!-- Arka Plan Görseli (Fuji Dağı & Chureito Pagoda) -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=2000&q=85" 
+                 alt="Kyoto & Mount Fuji Japan" 
+                 onerror="this.src='https://placehold.co/1920x1080/111827/FAF8F5?text=EJDER+JAPAN+DMC'"
+                 class="w-full h-full object-cover object-center scale-105">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 w-full">
+            <div class="max-w-3xl">
+                <!-- Kurumsal Rozet -->
+                <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-amber-200 text-xs sm:text-sm font-medium mb-6">
+                    <span class="w-2 h-2 rounded-full bg-torii animate-pulse"></span>
+                    <span data-i18n="hero_badge">Japonya Tescilli Resmi DMC • 3. Sınıf Seyahat Acentesi</span>
+                </div>
+
+                <!-- Ana Başlık -->
+                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.15] tracking-tight mb-6" data-i18n="hero_title">
+                    Japonya’daki Yerel ve Güvenilir Çözüm Ortağınız
+                </h1>
+
+                <!-- Alt Açıklama -->
+                <p class="text-base sm:text-lg lg:text-xl text-stone-200 font-light leading-relaxed mb-10 max-w-2xl" data-i18n="hero_subtitle">
+                    EJDER JAPAN 株式会社 olarak Türkiye, Latin Amerika ve dünya genelindeki seyahat acenteleri ile özel gruplar için Tokyo, Kyoto, Osaka ve Kobe hattında uçtan uca yer hizmetleri sunuyoruz.
+                </p>
+
+                <!-- Eylem Butonları -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#quote" class="inline-flex items-center justify-center px-7 py-4 rounded-xl bg-torii hover:bg-toriiDark text-white font-semibold text-base shadow-lg shadow-torii/25 transition-all gap-2">
+                        <span data-i18n="hero_cta_primary">B2B Acente Teklifi Al</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                    <a href="#itineraries" class="inline-flex items-center justify-center px-7 py-4 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-semibold text-base transition-all" data-i18n="hero_cta_secondary">
+                        Örnek Rotaları İncele
+                    </a>
+                </div>
+
+                <!-- Hızlı Destinasyon Şeridi -->
+                <div class="mt-14 pt-8 border-t border-white/15 grid grid-cols-2 sm:grid-cols-4 gap-6 text-white/90">
+                    <div>
+                        <p class="font-jp text-xs text-amber-300/90">東京 • TOKYO</p>
+                        <p class="text-sm font-medium mt-0.5" data-i18n="dest_tokyo">Merkez Operasyon</p>
+                    </div>
+                    <div>
+                        <p class="font-jp text-xs text-amber-300/90">京都 • KYOTO</p>
+                        <p class="text-sm font-medium mt-0.5" data-i18n="dest_kyoto">Kültür & Ryokan Ağı</p>
+                    </div>
+                    <div>
+                        <p class="font-jp text-xs text-amber-300/90">大阪 • OSAKA</p>
+                        <p class="text-sm font-medium mt-0.5" data-i18n="dest_osaka">Kansai Lojistik Üssü</p>
+                    </div>
+                    <div>
+                        <p class="font-jp text-xs text-amber-300/90">富士山 • FUJI & HAKONE</p>
+                        <p class="text-sm font-medium mt-0.5" data-i18n="dest_fuji">Özel Grup Rotaları</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KURUMSAL / HAKKIMIZDA BÖLÜMÜ -->
+    <section id="about" class="py-20 lg:py-28 bg-washi">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                <!-- Sol Görsel Kompozisyonu -->
+                <div class="lg:col-span-5 relative">
+                    <div class="rounded-2xl overflow-hidden shadow-xl border border-stone-200 aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1000&q=85" 
+                             alt="Traditional Japanese Architecture Kyoto"
+                             onerror="this.src='https://placehold.co/800x1000/F3EFEA/111827?text=EJDER+JAPAN+KYOTO'"
+                             class="w-full h-full object-cover">
+                    </div>
+                    <!-- Yüzen Kurumsal Kart -->
+                    <div class="mt-4 sm:mt-0 sm:absolute sm:-bottom-6 sm:-right-6 bg-sumi text-white p-6 rounded-2xl shadow-xl max-w-xs border border-stone-700">
+                        <p class="font-jp text-xs text-amber-400 tracking-widest mb-1">日本法人 • REGISTERED IN JAPAN</p>
+                        <p class="font-serif text-lg font-semibold">EJDER JAPAN株式会社</p>
+                        <p class="text-xs text-stone-300 mt-2 leading-relaxed" data-i18n="about_floating_desc">
+                            Aracısız yerel kontratlar ve Japon iş kültürüne hakim operasyon ekibiyle kesintisiz saha yönetimi.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Sağ Metin ve Metrikler -->
+                <div class="lg:col-span-7">
+                    <span class="text-torii font-semibold text-xs uppercase tracking-[0.2em]" data-i18n="about_kicker">KURUMSAL KİMLİK</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sumi mt-3 mb-6 leading-tight" data-i18n="about_title">
+                        Uzaktan Aracılık Değil, Doğrudan Japonya Sahasında Yerel Güç
+                    </h2>
+                    <p class="text-stone-600 text-base sm:text-lg leading-relaxed mb-5" data-i18n="about_p1">
+                        <strong>EJDER JAPAN 株式会社 (EJDER JAPAN Co., Ltd.)</strong>, küresel tur operatörleri ve seçkin seyahat acenteleri ile otantik Japonya deneyimini buluşturan, Japonya’da tescilli yerel bir Destinasyon Yönetim Şirketidir (DMC).
+                    </p>
+                    <p class="text-stone-600 text-base leading-relaxed mb-8" data-i18n="about_p2">
+                        Japonya’nın önde gelen otel zincirleri, geleneksel Ryokan işletmeleri, lisanslı yerel rehberler ve özel transfer filolarıyla doğrudan anlaşmalı olarak çalışıyoruz. İster 9 kişilik butik bir grup ister düzenli seri kalkışlı turlar planlayın; misafirlerinizin Japonya’ya adım attığı andan dönüş transferine kadar tüm süreci kendi ekibimizle yönetiyoruz.
+                    </p>
+
+                    <!-- 3 Temel Güvence Kartı -->
+                    <div class="grid sm:grid-cols-3 gap-4">
+                        <div class="bg-stoneWarm p-5 rounded-2xl border border-stone-200/80">
+                            <div class="w-10 h-10 rounded-xl bg-torii/10 text-torii flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                            </div>
+                            <h3 class="font-bold text-sumi text-sm mb-1" data-i18n="metric_1_title">Doğrudan Otel Blokajları</h3>
+                            <p class="text-xs text-stone-600 leading-relaxed" data-i18n="metric_1_desc">Tokyo, Osaka, Kyoto ve Kobe’de rekabetçi B2B grup kontratları.</p>
+                        </div>
+
+                        <div class="bg-stoneWarm p-5 rounded-2xl border border-stone-200/80">
+                            <div class="w-10 h-10 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <h3 class="font-bold text-sumi text-sm mb-1" data-i18n="metric_2_title">7/24 Yerel Operasyon</h3>
+                            <p class="text-xs text-stone-600 leading-relaxed" data-i18n="metric_2_desc">Japonya saat diliminde anlık saha desteği ve çok dilli koordinasyon.</p>
+                        </div>
+
+                        <div class="bg-stoneWarm p-5 rounded-2xl border border-stone-200/80">
+                            <div class="w-10 h-10 rounded-xl bg-sumi/10 text-sumi flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            </div>
+                            <h3 class="font-bold text-sumi text-sm mb-1" data-i18n="metric_3_title">Resmi Japon Şirketi</h3>
+                            <p class="text-xs text-stone-600 leading-relaxed" data-i18n="metric_3_desc">Japonya Ticaret Siciline kayıtlı ve fatura sistemine (T-No) tam uyumlu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- B2B DMC HİZMETLERİ BÖLÜMÜ -->
+    <section id="services" class="py-20 lg:py-28 bg-stoneWarm border-y border-stone-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-torii font-semibold text-xs uppercase tracking-[0.2em]" data-i18n="services_kicker">B2B & KURUMSAL ÇÖZÜMLER</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sumi mt-3 mb-4" data-i18n="services_title">
+                    Seyahat Acenteleri İçin Uçtan Uca Japonya DMC Hizmetleri
+                </h2>
+                <p class="text-stone-600 text-base sm:text-lg" data-i18n="services_subtitle">
+                    Partner acentelerimizin markasını en iyi şekilde temsil eden, şeffaf maliyetli ve yüksek misafir memnuniyeti odaklı yer hizmetleri sunuyoruz.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Kart 1 -->
+                <div class="bg-washi p-7 rounded-2xl border border-stone-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-sumi text-white flex items-center justify-center mb-6 group-hover:bg-torii transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-sumi mb-3" data-i18n="srv_1_title">Seri & Özel Grup Turları</h3>
+                        <p class="text-sm text-stone-600 leading-relaxed mb-4" data-i18n="srv_1_desc">
+                            Garantili kalkışlı seri turlar ve özel kapalı gruplar için gün gün optimize edilmiş programlar, restoran rezervasyonları ve lisanslı rehberlik.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-stone-200/80 text-xs font-semibold text-torii" data-i18n="srv_1_tag">
+                        8–40 Kişilik Grup Operasyonu
+                    </div>
+                </div>
+
+                <!-- Kart 2 -->
+                <div class="bg-washi p-7 rounded-2xl border border-stone-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-sumi text-white flex items-center justify-center mb-6 group-hover:bg-torii transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path></svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-sumi mb-3" data-i18n="srv_2_title">Doğrudan Otel & Ryokan</h3>
+                        <p class="text-sm text-stone-600 leading-relaxed mb-4" data-i18n="srv_2_desc">
+                            Tokyo, Osaka, Kyoto ve Kobe merkezlerinde 3★–5★ zincir oteller (Hotel Monterey vb.) ve Hakone/Fuji bölgesinde geleneksel Ryokan blokajları.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-stone-200/80 text-xs font-semibold text-torii" data-i18n="srv_2_tag">
+                        Yüksek Sezon Oda Kontenjanı
+                    </div>
+                </div>
+
+                <!-- Kart 3 -->
+                <div class="bg-washi p-7 rounded-2xl border border-stone-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-sumi text-white flex items-center justify-center mb-6 group-hover:bg-torii transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-sumi mb-3" data-i18n="srv_3_title">Transfer & Shinkansen</h3>
+                        <p class="text-sm text-stone-600 leading-relaxed mb-4" data-i18n="srv_3_desc">
+                            Narita, Haneda ve Kansai havalimanlarında karşılama, özel lüks minibüs/otobüs tahsisi, bagaj transferi (Takkyubin) ve hızlı tren biletleri.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-stone-200/80 text-xs font-semibold text-torii" data-i18n="srv_3_tag">
+                        Dakik & Konforlu Lojistik
+                    </div>
+                </div>
+
+                <!-- Kart 4 -->
+                <div class="bg-washi p-7 rounded-2xl border border-stone-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-sumi text-white flex items-center justify-center mb-6 group-hover:bg-torii transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-sumi mb-3" data-i18n="srv_4_title">Tailor-Made & MICE</h3>
+                        <p class="text-sm text-stone-600 leading-relaxed mb-4" data-i18n="srv_4_desc">
+                            Kurumsal teşvik gezileri, fuar katılımları, balayı çiftleri ve VIP aileler için kişiye özel tasarlanan gastronomi ve kültür deneyimleri.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-stone-200/80 text-xs font-semibold text-torii" data-i18n="srv_4_tag">
+                        Esnek & Butik Planlama
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÖRNEK ROTALAR (İNTERAKTİF) BÖLÜMÜ -->
+    <section id="itineraries" class="py-20 lg:py-28 bg-washi">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+                <div>
+                    <span class="text-torii font-semibold text-xs uppercase tracking-[0.2em]" data-i18n="itin_kicker">İMZA PROGRAMLARIMIZ</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sumi mt-3" data-i18n="itin_title">
+                        Acenteler İçin Hazır Örnek Rotalar
+                    </h2>
+                </div>
+                <p class="text-stone-600 text-sm sm:text-base max-w-md" data-i18n="itin_subtitle">
+                    Tüm programlarımız grubunuzun uçuş saatlerine, otel kategorisi tercihine ve serbest zaman taleplerine göre özelleştirilebilir.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Rota 1: Klasik Altın Rota -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-all flex flex-col">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=900&q=80" 
+                             alt="Golden Route Japan"
+                             onerror="this.src='https://placehold.co/800x500/111827/FAF8F5?text=Golden+Route'"
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-sumi/90 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-lg" data-i18n="route1_badge">
+                            10 Gün / 9 Gece
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-gold uppercase tracking-wider mb-1">TOKYO • FUJI • KYOTO • OSAKA</p>
+                            <h3 class="font-serif text-xl font-bold text-sumi mb-3" data-i18n="route1_title">Klasik Altın Rota (Golden Route)</h3>
+                            <p class="text-sm text-stone-600 leading-relaxed mb-6" data-i18n="route1_desc">
+                                İlk kez Japonya’ya gelecek gruplar için en ideal denge: Modern Tokyo, Fuji Dağı manzaraları, tarihi Kyoto tapınakları, Nara ve gastronomi başkenti Osaka.
+                            </p>
+                        </div>
+                        <button onclick="openItineraryModal('golden')" class="w-full py-3 px-4 rounded-xl bg-stoneWarm hover:bg-sumi text-sumi hover:text-white font-semibold text-sm transition-colors flex items-center justify-center gap-2 border border-stone-300/70">
+                            <span data-i18n="btn_view_itinerary">Gün Gün Programı İncele</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Rota 2: Sakura İlkbahar Özel -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-all flex flex-col">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=900&q=80" 
+                             alt="Sakura Cherry Blossom Japan"
+                             onerror="this.src='https://placehold.co/800x500/B91C1C/FAF8F5?text=Sakura+Special'"
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-torii text-white text-xs font-semibold px-3 py-1.5 rounded-lg" data-i18n="route2_badge">
+                            8 Gün / 7 Gece • İlkbahar
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-torii uppercase tracking-wider mb-1">UENO • KAWAGUCHIKO • ARASHIYAMA • KOBE</p>
+                            <h3 class="font-serif text-xl font-bold text-sumi mb-3" data-i18n="route2_title">Sakura Kiraz Çiçekleri Özel Rotası</h3>
+                            <p class="text-sm text-stone-600 leading-relaxed mb-6" data-i18n="route2_desc">
+                                Mart sonu ve Nisan başında Japonya’nın pembe-beyaz bahar atmosferini en ikonik parklarda, nehir kıyılarında ve tarihi bahçelerde yaşatan özel sezon programı.
+                            </p>
+                        </div>
+                        <button onclick="openItineraryModal('sakura')" class="w-full py-3 px-4 rounded-xl bg-stoneWarm hover:bg-sumi text-sumi hover:text-white font-semibold text-sm transition-colors flex items-center justify-center gap-2 border border-stone-300/70">
+                            <span data-i18n="btn_view_itinerary">Gün Gün Programı İncele</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Rota 3: Momiji Sonbahar & Ryokan -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-all flex flex-col">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?auto=format&fit=crop&w=900&q=80" 
+                             alt="Momiji Autumn Leaves Kyoto"
+                             onerror="this.src='https://placehold.co/800x500/B45309/FAF8F5?text=Momiji+Autumn'"
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-gold text-white text-xs font-semibold px-3 py-1.5 rounded-lg" data-i18n="route3_badge">
+                            9 Gün / 8 Gece • Sonbahar
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-gold uppercase tracking-wider mb-1">NIKKO • TOKYO • HAKONE RYOKAN • KYOTO</p>
+                            <h3 class="font-serif text-xl font-bold text-sumi mb-3" data-i18n="route3_title">Momiji Sonbahar & Onsen Ryokan</h3>
+                            <p class="text-sm text-stone-600 leading-relaxed mb-6" data-i18n="route3_desc">
+                                Kasım ayında kızıl akçaağaç yapraklarıyla (Momiji) büyülenen tapınak bahçeleri, geleneksel kaplıcalı Ryokan konaklaması ve Kaiseki akşam yemeği deneyimi.
+                            </p>
+                        </div>
+                        <button onclick="openItineraryModal('momiji')" class="w-full py-3 px-4 rounded-xl bg-stoneWarm hover:bg-sumi text-sumi hover:text-white font-semibold text-sm transition-colors flex items-center justify-center gap-2 border border-stone-300/70">
+                            <span data-i18n="btn_view_itinerary">Gün Gün Programı İncele</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEDEN EJDER JAPAN BÖLÜMÜ -->
+    <section id="why-us" class="py-20 bg-sumi text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-amber-400 font-semibold text-xs uppercase tracking-[0.2em]" data-i18n="why_kicker">OPERASYONEL FARKIMIZ</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-3 mb-6 leading-tight" data-i18n="why_title">
+                        Japonya’da Güçlü Bir Yerel Partnerle Çalışmanın Avantajları
+                    </h2>
+                    <p class="text-stone-300 text-base leading-relaxed mb-8" data-i18n="why_desc">
+                        Japonya turizm pazarı; katı rezervasyon kuralları, dil bariyeri ve sezonsal yoğunluklar nedeniyle sahada güçlü bağlantılar gerektirir. EJDER JAPAN 株式会社, partner acenteleri için tüm bu karmaşıklığı ortadan kaldırır.
+                    </p>
+
+                    <div class="space-y-5">
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-lg bg-torii flex items-center justify-center text-white font-bold text-sm shrink-0 mt-0.5">01</div>
+                            <div>
+                                <h4 class="font-bold text-white text-base" data-i18n="why_1_t">Çok Dilli İletişim Köprüsü (TR / EN / ES / JP)</h4>
+                                <p class="text-sm text-stone-400 mt-1" data-i18n="why_1_d">Japon otel ve tedarikçilerle Japonca iletişim kurarken, size kendi dilinizde hızlı ve net raporlama sunuyoruz.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-lg bg-torii flex items-center justify-center text-white font-bold text-sm shrink-0 mt-0.5">02</div>
+                            <div>
+                                <h4 class="font-bold text-white text-base" data-i18n="why_2_t">Gerçekçi ve Akıcı Rota Mühendisliği</h4>
+                                <p class="text-sm text-stone-400 mt-1" data-i18n="why_2_d">Kağıt üzerinde güzel görünen ama sahada yorucu olan programlar yerine, Shinkansen saatlerine ve bagaj lojistiğine tam uyumlu akışlar kurguluyoruz.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-lg bg-torii flex items-center justify-center text-white font-bold text-sm shrink-0 mt-0.5">03</div>
+                            <div>
+                                <h4 class="font-bold text-white text-base" data-i18n="why_3_t">Şeffaf Fiyatlandırma & Hızlı Teklif Dönüşü</h4>
+                                <p class="text-sm text-stone-400 mt-1" data-i18n="why_3_d">Grup taleplerinize 24–48 saat içinde kalem kalem netleştirilmiş B2B net maliyet tablosuyla dönüş yapıyoruz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sağ Taraf: İstatistik & Güven Kutusu -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-10 backdrop-blur-sm">
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+                            <p class="font-serif text-3xl sm:text-4xl font-bold text-amber-400">24-48s</p>
+                            <p class="text-xs sm:text-sm text-stone-300 mt-2" data-i18n="stat_1">Ortalama B2B Teklif Hazırlama Süresi</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+                            <p class="font-serif text-3xl sm:text-4xl font-bold text-amber-400">%100</p>
+                            <p class="text-xs sm:text-sm text-stone-300 mt-2" data-i18n="stat_2">Japonya Yerleşik Resmi Operasyon</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+                            <p class="font-serif text-3xl sm:text-4xl font-bold text-amber-400">4+ Dil</p>
+                            <p class="text-xs sm:text-sm text-stone-300 mt-2" data-i18n="stat_3">Türkçe, İngilizce, İspanyolca & Japonca</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+                            <p class="font-serif text-3xl sm:text-4xl font-bold text-amber-400">7/24</p>
+                            <p class="text-xs sm:text-sm text-stone-300 mt-2" data-i18n="stat_4">Tur Boyunca Aktif Saha Acil Destek Hattı</p>
+                        </div>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-torii/20 border border-torii/40 flex items-center justify-between gap-4">
+                        <div>
+                            <p class="text-sm font-bold text-white" data-i18n="partner_cta_t">2026–2027 Sezonu Kontratları Açıldı</p>
+                            <p class="text-xs text-stone-300 mt-0.5" data-i18n="partner_cta_d">Seri grup blokajları için bizimle doğrudan iletişime geçin.</p>
+                        </div>
+                        <a href="#quote" class="px-4 py-2.5 rounded-xl bg-torii hover:bg-toriiDark text-white text-xs font-bold shrink-0 transition-colors" data-i18n="partner_cta_btn">
+                            İletişime Geç
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- B2B & GRUP TEKLİF FORMU -->
+    <section id="quote" class="py-20 lg:py-28 bg-stoneWarm">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-torii font-semibold text-xs uppercase tracking-[0.2em]" data-i18n="form_kicker">TEKLİF & İŞ BİRLİĞİ TALEBİ</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sumi mt-3 mb-4" data-i18n="form_title">
+                    Japonya Operasyonunuz İçin Teklif Alın
+                </h2>
+                <p class="text-stone-600 text-base max-w-2xl mx-auto" data-i18n="form_subtitle">
+                    Acenteniz veya özel grubunuz için tahmini tarih ve kişi sayısını paylaşın; Tokyo ofisimiz size özel program ve fiyat çalışmasını hazırlasın.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-stone-200/90">
+                <form id="inquiry-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <!-- Talep Türü Seçimi -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-stone-500 mb-2" data-i18n="lbl_type">Talep Türü</label>
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="inquiryType" value="B2B Acente İş Birliği / Grup Turu" checked class="peer sr-only">
+                                <div class="p-4 rounded-xl border-2 border-stone-200 peer-checked:border-torii peer-checked:bg-torii/5 transition-all flex items-center gap-3">
+                                    <span class="w-4 h-4 rounded-full border-2 border-stone-400 peer-checked:border-torii flex items-center justify-center"></span>
+                                    <span class="text-sm font-semibold text-sumi" data-i18n="opt_b2b">B2B Seyahat Acentesi / Tur Operatörü</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="inquiryType" value="Özel Grup / VIP Tailor-Made" class="peer sr-only">
+                                <div class="p-4 rounded-xl border-2 border-stone-200 peer-checked:border-torii peer-checked:bg-torii/5 transition-all flex items-center gap-3">
+                                    <span class="w-4 h-4 rounded-full border-2 border-stone-400 peer-checked:border-torii flex items-center justify-center"></span>
+                                    <span class="text-sm font-semibold text-sumi" data-i18n="opt_private">Özel Kapalı Grup / VIP Aile Turu</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="agencyName" class="block text-sm font-semibold text-sumi mb-2" data-i18n="lbl_agency">Acente Adı / Adınız Soyadınız *</label>
+                            <input type="text" id="agencyName" required placeholder="Örn: ABC Turizm / Ahmet Yılmaz"
+                                   class="w-full px-4 py-3 rounded-xl bg-washi border border-stone-300 focus:border-torii focus:ring-2 focus:ring-torii/20 outline-none text-sm transition-all">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-sumi mb-2" data-i18n="lbl_email">Kurumsal E-posta Adresi *</label>
+                            <input type="email" id="email" required placeholder="operasyon@acenteniz.com"
+                                   class="w-full px-4 py-3 rounded-xl bg-washi border border-stone-300 focus:border-torii focus:ring-2 focus:ring-torii/20 outline-none text-sm transition-all">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-3 gap-6">
+                        <div>
+                            <label for="travelDate" class="block text-sm font-semibold text-sumi mb-2" data-i18n="lbl_date">Tahmini Giriş Tarihi *</label>
+                            <input type="date" id="travelDate" required
+                                   class="w-full px-4 py-3 rounded-xl bg-washi border border-stone-300 focus:border-torii focus:ring-2 focus:ring-torii/20 outline-none text-sm transition-all">
+                        </div>
+                        <div>
+                            <label for="paxCount" class="block text-sm font-semibold text-sumi mb-2" data-i18n="lbl_pax">Tahmini Kişi Sayısı *</label>
+                            <input type="number" id="paxCount" min="2" max="200" value="15" required
+                                   class="w-full px-4 py-3 rounded-xl bg-washi border border-stone-300 focus:border-torii focus:ring-2 focus:ring-torii/20 outline-none text-sm transition-all">
+                        </div>
+                        <div>
+                            <label for="airport" class="block text-sm font-semibold text-sumi mb-2" data-i18n="lbl_airport">Giriş / Çıkış Hattı</label>
+                            <select id="airport" class="w-full px-4 py-3 rounded-xl bg-washi border border-stone-300 focus:border-torii focus:ring-2 focus:ring-torii/20 outline-none text-sm transition-all">
+                                <option value="Tokyo (NRT/HND) Giriş - Osaka (KIX) Çıkış">Tokyo Giriş → Osaka Çıkış</option>
+                                <option value="Tokyo (NRT/HND) Giriş - Tokyo Çıkış">Tokyo Giriş → Tokyo Çıkış</option>
+                                <option value="Osaka (KIX) Giriş - Tokyo (NRT/HND) Çıkış">Osaka Giriş → Tokyo Çıkış</option>
+                                <option value="Henüz Netleşmedi">Henüz Netleşmedi</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="notes" class="block text-sm font-semibold text-sumi mb-2" data-i18n="lbl_notes">Program Detayları, Otel Kategorisi ve Özel Notlar</label>
+                        <textarea id="notes" rows="4" placeholder="Örn: 4 yıldızlı merkezi oteller, 1 gece Hakone Ryokan konaklaması, Türkçe veya İngilizce rehberlik talebi..."
+                                  class="w-full px-4 py-3 rounded-xl bg-washi border border-stone-300 focus:border-torii focus:ring-2 focus:ring-torii/20 outline-none text-sm transition-all"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 px-6 rounded-xl bg-torii hover:bg-toriiDark text-white font-bold text-base shadow-lg shadow-torii/20 transition-all flex items-center justify-center gap-2">
+                        <span data-i18n="btn_submit">Talebi Tokyo Ofisine İlet</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                    </button>
+                </form>
+
+                <!-- Form Gönderim Onay Kutusu (alert() yerine özel mesaj kutusu) -->
+                <div id="form-confirmation" class="hidden mt-6 p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-lg text-emerald-900" data-i18n="confirm_title">Talebiniz Başarıyla Oluşturuldu!</h4>
+                            <p class="text-sm text-emerald-800 mt-1" data-i18n="confirm_desc">
+                                EJDER JAPAN 株式会社 operasyon ekibimiz talebinizi inceleyerek 24–48 saat içinde size dönüş yapacaktır.
+                            </p>
+                            <div id="confirm-summary" class="mt-4 p-4 rounded-xl bg-white border border-emerald-200/80 text-xs space-y-1.5 text-stone-700 font-medium"></div>
+                            <button onclick="resetInquiryForm()" class="mt-4 text-xs font-bold text-emerald-700 hover:text-emerald-900 underline" data-i18n="btn_new_inquiry">
+                                Yeni bir talep oluştur
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESMİ ŞİRKET KÜNYESİ (KAISHA GAIYO) & FOOTER -->
+    <footer id="kaisha-gaiyo" class="bg-sumi text-stone-300 pt-20 pb-12 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 pb-16 border-b border-stone-800">
+                <!-- Sol Marka Özeti -->
+                <div class="lg:col-span-5">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-xl bg-torii flex items-center justify-center text-white font-jp font-bold text-lg">
+                            龍
+                        </div>
+                        <div>
+                            <span class="font-serif font-bold text-xl tracking-wider text-white block leading-none">EJDER JAPAN</span>
+                            <span class="font-jp text-[11px] tracking-[0.2em] text-stone-400 mt-1 block">株式会社 • DESTINATION MANAGEMENT</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-stone-400 leading-relaxed mb-6 max-w-md" data-i18n="footer_about">
+                        Japonya’da yerleşik resmi seyahat ve destinasyon yönetim şirketi. Türkiye, Latin Amerika ve dünya genelindeki tur operatörleri için güvenilir yerel partner.
+                    </p>
+                    <div class="flex flex-wrap gap-3 text-xs">
+                        <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-stone-300">Tokyo</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-stone-300">Kyoto</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-stone-300">Osaka</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-stone-300">Hakone & Fuji</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-stone-300">Kobe</span>
+                    </div>
+                </div>
+
+                <!-- Sağ Resmi Japon Şirket Künyesi (Kaisha Gaiyo Tablosu) -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white/5 rounded-2xl p-6 sm:p-8 border border-white/10">
+                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+                            <h3 class="font-serif text-lg font-bold text-white" data-i18n="kaisha_title">Resmi Şirket Künyesi (Kaisha Gaiyo)</h3>
+                            <span class="font-jp text-xs text-amber-400">会社概要</span>
+                        </div>
+                        <dl class="grid sm:grid-cols-3 gap-y-3 gap-x-4 text-sm">
+                            <dt class="text-stone-400 font-medium" data-i18n="kg_name_l">Ticari Unvan:</dt>
+                            <dd class="sm:col-span-2 text-white font-semibold">EJDER JAPAN株式会社 (EJDER JAPAN Co., Ltd.)</dd>
+
+                            <dt class="text-stone-400 font-medium" data-i18n="kg_loc_l">Merkez Ofis:</dt>
+                            <dd class="sm:col-span-2 text-stone-200" data-i18n="kg_loc_v">Tokyo, Japan (Japonya Ticaret Siciline Kayıtlı Merkez)</dd>
+
+                            <dt class="text-stone-400 font-medium" data-i18n="kg_scope_l">Faaliyet Alanı:</dt>
+                            <dd class="sm:col-span-2 text-stone-200" data-i18n="kg_scope_v">Inbound Seyahat Acenteliği, B2B DMC Yer Hizmetleri, Otel & Transfer Organizasyonu</dd>
+
+                            <dt class="text-stone-400 font-medium" data-i18n="kg_lic_l">Turizm Lisansı:</dt>
+                            <dd class="sm:col-span-2 text-amber-300 font-medium" data-i18n="kg_lic_v">Japonya 3. Sınıf Seyahat Acentesi (第3種旅行業)</dd>
+
+                            <dt class="text-stone-400 font-medium" data-i18n="kg_contact_l">Kurumsal İletişim:</dt>
+                            <dd class="sm:col-span-2 text-stone-200">info@ejderjapan.com</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
+                <p>© 2026 EJDER JAPAN株式会社 (EJDER JAPAN Co., Ltd.). All Rights Reserved.</p>
+                <p data-i18n="footer_note">Japonya Seyahat Acenteleri Kanunu (旅行業法) standartlarına uygun olarak hizmet vermektedir.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- İNTERAKTİF ROTA DETAY MODALI -->
+    <div id="itinerary-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-sumi/80 backdrop-blur-sm">
+        <div class="bg-washi rounded-3xl max-w-2xl w-full max-h-[88vh] flex flex-col shadow-2xl border border-stone-200 overflow-hidden">
+            <!-- Modal Üst Başlık -->
+            <div class="p-6 sm:px-8 bg-sumi text-white flex items-center justify-between">
+                <div>
+                    <span id="modal-badge" class="text-xs font-bold text-amber-400 uppercase tracking-wider"></span>
+                    <h3 id="modal-title" class="font-serif text-2xl font-bold mt-1"></h3>
+                </div>
+                <button onclick="closeItineraryModal()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors" aria-label="Kapat">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <!-- Modal İçerik (Gün Gün Program) -->
+            <div id="modal-body" class="p-6 sm:p-8 overflow-y-auto space-y-4 text-sm text-stone-700">
+                <!-- JavaScript ile dinamik doldurulur -->
+            </div>
+
+            <!-- Modal Alt Çubuk -->
+            <div class="p-5 sm:px-8 bg-stoneWarm border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <span class="text-xs text-stone-500" data-i18n="modal_note">* Bu program grubunuza özel olarak uyarlanabilir.</span>
+                <a href="#quote" onclick="closeItineraryModal()" class="w-full sm:w-auto text-center px-6 py-3 rounded-xl bg-torii hover:bg-toriiDark text-white font-semibold text-sm transition-colors" data-i18n="modal_cta">
+                    Bu Rota İçin B2B Teklif İste
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÇOK DİLLİ VERİ VE İNTERAKTİF MANTIK (TR / EN) -->
+    <script>
+        let currentLang = 'tr';
+
+        const translations = {
+            tr: {
+                nav_about: "Kurumsal",
+                nav_services: "B2B Hizmetler",
+                nav_itineraries: "Örnek Rotalar",
+                nav_why: "Neden Ejder Japan?",
+                nav_profile: "Şirket Künyesi",
+                nav_cta: "Teklif Al",
+                hero_badge: "Japonya Tescilli Resmi DMC • 3. Sınıf Seyahat Acentesi",
+                hero_title: "Japonya’daki Yerel ve Güvenilir Çözüm Ortağınız",
+                hero_subtitle: "EJDER JAPAN 株式会社 olarak Türkiye, Latin Amerika ve dünya genelindeki seyahat acenteleri ile özel gruplar için Tokyo, Kyoto, Osaka ve Kobe hattında uçtan uca yer hizmetleri sunuyoruz.",
+                hero_cta_primary: "B2B Acente Teklifi Al",
+                hero_cta_secondary: "Örnek Rotaları İncele",
+                dest_tokyo: "Merkez Operasyon",
+                dest_kyoto: "Kültür & Ryokan Ağı",
+                dest_osaka: "Kansai Lojistik Üssü",
+                dest_fuji: "Özel Grup Rotaları",
+                about_floating_desc: "Aracısız yerel kontratlar ve Japon iş kültürüne hakim operasyon ekibiyle kesintisiz saha yönetimi.",
+                about_kicker: "KURUMSAL KİMLİK",
+                about_title: "Uzaktan Aracılık Değil, Doğrudan Japonya Sahasında Yerel Güç",
+                about_p1: "EJDER JAPAN 株式会社 (EJDER JAPAN Co., Ltd.), küresel tur operatörleri ve seçkin seyahat acenteleri ile otantik Japonya deneyimini buluşturan, Japonya’da tescilli yerel bir Destinasyon Yönetim Şirketidir (DMC).",
+                about_p2: "Japonya’nın önde gelen otel zincirleri, geleneksel Ryokan işletmeleri, lisanslı yerel rehberler ve özel transfer filolarıyla doğrudan anlaşmalı olarak çalışıyoruz. İster 9 kişilik butik bir grup ister düzenli seri kalkışlı turlar planlayın; misafirlerinizin Japonya’ya adım attığı andan dönüş transferine kadar tüm süreci kendi ekibimizle yönetiyoruz.",
+                metric_1_title: "Doğrudan Otel Blokajları",
+                metric_1_desc: "Tokyo, Osaka, Kyoto ve Kobe’de rekabetçi B2B grup kontratları.",
+                metric_2_title: "7/24 Yerel Operasyon",
+                metric_2_desc: "Japonya saat diliminde anlık saha desteği ve çok dilli koordinasyon.",
+                metric_3_title: "Resmi Japon Şirketi",
+                metric_3_desc: "Japonya Ticaret Siciline kayıtlı ve fatura sistemine (T-No) tam uyumlu.",
+                services_kicker: "B2B & KURUMSAL ÇÖZÜMLER",
+                services_title: "Seyahat Acenteleri İçin Uçtan Uca Japonya DMC Hizmetleri",
+                services_subtitle: "Partner acentelerimizin markasını en iyi şekilde temsil eden, şeffaf maliyetli ve yüksek misafir memnuniyeti odaklı yer hizmetleri sunuyoruz.",
+                srv_1_title: "Seri & Özel Grup Turları",
+                srv_1_desc: "Garantili kalkışlı seri turlar ve özel kapalı gruplar için gün gün optimize edilmiş programlar, restoran rezervasyonları ve lisanslı rehberlik.",
+                srv_1_tag: "8–40 Kişilik Grup Operasyonu",
+                srv_2_title: "Doğrudan Otel & Ryokan",
+                srv_2_desc: "Tokyo, Osaka, Kyoto ve Kobe merkezlerinde 3★–5★ zincir oteller (Hotel Monterey vb.) ve Hakone/Fuji bölgesinde geleneksel Ryokan blokajları.",
+                srv_2_tag: "Yüksek Sezon Oda Kontenjanı",
+                srv_3_title: "Transfer & Shinkansen",
+                srv_3_desc: "Narita, Haneda ve Kansai havalimanlarında karşılama, özel lüks minibüs/otobüs tahsisi, bagaj transferi (Takkyubin) ve hızlı tren biletleri.",
+                srv_3_tag: "Dakik & Konforlu Lojistik",
+                srv_4_title: "Tailor-Made & MICE",
+                srv_4_desc: "Kurumsal teşvik gezileri, fuar katılımları, balayı çiftleri ve VIP aileler için kişiye özel tasarlanan gastronomi ve kültür deneyimleri.",
+                srv_4_tag: "Esnek & Butik Planlama",
+                itin_kicker: "İMZA PROGRAMLARIMIZ",
+                itin_title: "Acenteler İçin Hazır Örnek Rotalar",
+                itin_subtitle: "Tüm programlarımız grubunuzun uçuş saatlerine, otel kategorisi tercihine ve serbest zaman taleplerine göre özelleştirilebilir.",
+                route1_badge: "10 Gün / 9 Gece",
+                route1_title: "Klasik Altın Rota (Golden Route)",
+                route1_desc: "İlk kez Japonya’ya gelecek gruplar için en ideal denge: Modern Tokyo, Fuji Dağı manzaraları, tarihi Kyoto tapınakları, Nara ve gastronomi başkenti Osaka.",
+                route2_badge: "8 Gün / 7 Gece • İlkbahar",
+                route2_title: "Sakura Kiraz Çiçekleri Özel Rotası",
+                route2_desc: "Mart sonu ve Nisan başında Japonya’nın pembe-beyaz bahar atmosferini en ikonik parklarda, nehir kıyılarında ve tarihi bahçelerde yaşatan özel sezon programı.",
+                route3_badge: "9 Gün / 8 Gece • Sonbahar",
+                route3_title: "Momiji Sonbahar & Onsen Ryokan",
+                route3_desc: "Kasım ayında kızıl akçaağaç yapraklarıyla (Momiji) büyülenen tapınak bahçeleri, geleneksel kaplıcalı Ryokan konaklaması ve Kaiseki akşam yemeği deneyimi.",
+                btn_view_itinerary: "Gün Gün Programı İncele",
+                why_kicker: "OPERASYONEL FARKIMIZ",
+                why_title: "Japonya’da Güçlü Bir Yerel Partnerle Çalışmanın Avantajları",
+                why_desc: "Japonya turizm pazarı; katı rezervasyon kuralları, dil bariyeri ve sezonsal yoğunluklar nedeniyle sahada güçlü bağlantılar gerektirir. EJDER JAPAN 株式会社, partner acenteleri için tüm bu karmaşıklığı ortadan kaldırır.",
+                why_1_t: "Çok Dilli İletişim Köprüsü (TR / EN / ES / JP)",
+                why_1_d: "Japon otel ve tedarikçilerle Japonca iletişim kurarken, size kendi dilinizde hızlı ve net raporlama sunuyoruz.",
+                why_2_t: "Gerçekçi ve Akıcı Rota Mühendisliği",
+                why_2_d: "Kağıt üzerinde güzel görünen ama sahada yorucu olan programlar yerine, Shinkansen saatlerine ve bagaj lojistiğine tam uyumlu akışlar kurguluyoruz.",
+                why_3_t: "Şeffaf Fiyatlandırma & Hızlı Teklif Dönüşü",
+                why_3_d: "Grup taleplerinize 24–48 saat içinde kalem kalem netleştirilmiş B2B net maliyet tablosuyla dönüş yapıyoruz.",
+                stat_1: "Ortalama B2B Teklif Hazırlama Süresi",
+                stat_2: "Japonya Yerleşik Resmi Operasyon",
+                stat_3: "Türkçe, İngilizce, İspanyolca & Japonca",
+                stat_4: "Tur Boyunca Aktif Saha Acil Destek Hattı",
+                partner_cta_t: "2026–2027 Sezonu Kontratları Açıldı",
+                partner_cta_d: "Seri grup blokajları için bizimle doğrudan iletişime geçin.",
+                partner_cta_btn: "İletişime Geç",
+                form_kicker: "TEKLİF & İŞ BİRLİĞİ TALEBİ",
+                form_title: "Japonya Operasyonunuz İçin Teklif Alın",
+                form_subtitle: "Acenteniz veya özel grubunuz için tahmini tarih ve kişi sayısını paylaşın; Tokyo ofisimiz size özel program ve fiyat çalışmasını hazırlasın.",
+                lbl_type: "Talep Türü",
+                opt_b2b: "B2B Seyahat Acentesi / Tur Operatörü",
+                opt_private: "Özel Kapalı Grup / VIP Aile Turu",
+                lbl_agency: "Acente Adı / Adınız Soyadınız *",
+                lbl_email: "Kurumsal E-posta Adresi *",
+                lbl_date: "Tahmini Giriş Tarihi *",
+                lbl_pax: "Tahmini Kişi Sayısı *",
+                lbl_airport: "Giriş / Çıkış Hattı",
+                lbl_notes: "Program Detayları, Otel Kategorisi ve Özel Notlar",
+                btn_submit: "Talebi Tokyo Ofisine İlet",
+                confirm_title: "Talebiniz Başarıyla Oluşturuldu!",
+                confirm_desc: "EJDER JAPAN 株式会社 operasyon ekibimiz talebinizi inceleyerek 24–48 saat içinde size dönüş yapacaktır.",
+                btn_new_inquiry: "Yeni bir talep oluştur",
+                footer_about: "Japonya’da yerleşik resmi seyahat ve destinasyon yönetim şirketi. Türkiye, Latin Amerika ve dünya genelindeki tur operatörleri için güvenilir yerel partner.",
+                kaisha_title: "Resmi Şirket Künyesi (Kaisha Gaiyo)",
+                kg_name_l: "Ticari Unvan:",
+                kg_loc_l: "Merkez Ofis:",
+                kg_loc_v: "Tokyo, Japan (Japonya Ticaret Siciline Kayıtlı Merkez)",
+                kg_scope_l: "Faaliyet Alanı:",
+                kg_scope_v: "Inbound Seyahat Acenteliği, B2B DMC Yer Hizmetleri, Otel & Transfer Organizasyonu",
+                kg_lic_l: "Turizm Lisansı:",
+                kg_lic_v: "Japonya 3. Sınıf Seyahat Acentesi (第3種旅行業)",
+                kg_contact_l: "Kurumsal İletişim:",
+                footer_note: "Japonya Seyahat Acenteleri Kanunu (旅行業法) standartlarına uygun olarak hizmet vermektedir.",
+                modal_note: "* Bu program grubunuza özel olarak uyarlanabilir.",
+                modal_cta: "Bu Rota İçin B2B Teklif İste"
+            },
+            en: {
+                nav_about: "About Us",
+                nav_services: "B2B Services",
+                nav_itineraries: "Itineraries",
+                nav_why: "Why Ejder Japan?",
+                nav_profile: "Company Profile",
+                nav_cta: "Get a Quote",
+                hero_badge: "Registered Japanese DMC • Class 3 Licensed Travel Agency",
+                hero_title: "Your Trusted Local DMC Partner in Japan",
+                hero_subtitle: "Based in Japan, EJDER JAPAN Co., Ltd. delivers seamless end-to-end ground operations, hotel contracting, and curated group journeys across Tokyo, Kyoto, Osaka, and Kobe.",
+                hero_cta_primary: "Request B2B Proposal",
+                hero_cta_secondary: "Explore Itineraries",
+                dest_tokyo: "Headquarters & Operations",
+                dest_kyoto: "Cultural & Ryokan Network",
+                dest_osaka: "Kansai Logistics Hub",
+                dest_fuji: "Private & Series Routes",
+                about_floating_desc: "Direct local supplier contracts and seamless on-ground coordination led by our Japan-based operations team.",
+                about_kicker: "CORPORATE IDENTITY",
+                about_title: "Not a Remote Broker — Direct Local Strength on the Ground in Japan",
+                about_p1: "EJDER JAPAN Co., Ltd. (EJDER JAPAN株式会社) is a registered Japanese Destination Management Company bridging global tour operators and discerning travelers with authentic Japan.",
+                about_p2: "We work face-to-face with leading Japanese hotel chains, traditional Ryokans, licensed local guides, and private coach operators. Whether you are organizing a 9-guest boutique group or regular series departures, our team manages every detail from arrival to departure.",
+                metric_1_title: "Direct Hotel Contracting",
+                metric_1_desc: "Competitive B2B group allocations across Tokyo, Osaka, Kyoto, and Kobe.",
+                metric_2_title: "24/7 Local Operations",
+                metric_2_desc: "Real-time ground support in Japan Standard Time with multilingual coordination.",
+                metric_3_title: "Registered Japanese Corp.",
+                metric_3_desc: "Incorporated in Japan and fully compliant with the Qualified Invoice System.",
+                services_kicker: "B2B & CORPORATE SOLUTIONS",
+                services_title: "End-to-End Japan DMC Services for Travel Agencies",
+                services_subtitle: "We represent your brand with Japanese precision, transparent net pricing, and exceptional guest satisfaction.",
+                srv_1_title: "Series & Ad-Hoc Groups",
+                srv_1_desc: "Day-by-day optimized itineraries, group dining reservations, and licensed guides for guaranteed departures and private groups.",
+                srv_1_tag: "8–40 Pax Group Handling",
+                srv_2_title: "Direct Hotel & Ryokan",
+                srv_2_desc: "Central 3★–5★ hotel chains (Hotel Monterey, etc.) in Tokyo, Osaka, Kyoto, Kobe, plus authentic Ryokans in Hakone & Mt. Fuji.",
+                srv_2_tag: "Peak Season Room Allocations",
+                srv_3_title: "Transfers & Shinkansen",
+                srv_3_desc: "Airport meet-and-greet (Narita, Haneda, Kansai), private coaches, separate luggage forwarding (Takkyubin), and bullet train tickets.",
+                srv_3_tag: "Punctual & Smooth Logistics",
+                srv_4_title: "Tailor-Made & MICE",
+                srv_4_desc: "Bespoke culinary, cultural, and corporate incentive journeys crafted for VIP families, honeymooners, and executive delegations.",
+                srv_4_tag: "Flexible Boutique Planning",
+                itin_kicker: "SIGNATURE PROGRAMS",
+                itin_title: "Ready-to-Operate Sample Itineraries",
+                itin_subtitle: "All programs can be fully tailored to your group's flight schedules, hotel category preferences, and free-time requests.",
+                route1_badge: "10 Days / 9 Nights",
+                route1_title: "Classic Golden Route",
+                route1_desc: "The ideal balance for first-time visitors: Modern Tokyo, Mt. Fuji vistas, historic Kyoto temples, Nara, and culinary capital Osaka.",
+                route2_badge: "8 Days / 7 Nights • Spring",
+                route2_title: "Sakura Cherry Blossom Special",
+                route2_desc: "Experience Japan’s iconic late-March to early-April spring bloom across famous parks, riverside promenades, and historic gardens.",
+                route3_badge: "9 Days / 8 Nights • Autumn",
+                route3_title: "Momiji Autumn & Onsen Ryokan",
+                route3_desc: "Crimson maple foliage in November paired with a traditional hot-spring Ryokan stay and multi-course Kaiseki dinner.",
+                btn_view_itinerary: "View Day-by-Day Flow",
+                why_kicker: "OPERATIONAL EXCELLENCE",
+                why_title: "Why Partner with a Local Japanese DMC?",
+                why_desc: "Japan’s travel market demands strong local supplier relationships due to strict booking windows and seasonal peaks. EJDER JAPAN Co., Ltd. removes every barrier for our agency partners.",
+                why_1_t: "Multilingual Bridge (EN / TR / ES / JP)",
+                why_1_d: "We negotiate directly with Japanese hotels in Japanese while reporting to you clearly in your preferred language.",
+                why_2_t: "Realistic Route Engineering",
+                why_2_d: "Smooth schedules aligned with Shinkansen timetables and luggage forwarding—never rushed or exhausting on the ground.",
+                why_3_t: "Transparent Net B2B Pricing",
+                why_3_d: "Receive itemized, transparent group quotations within 24–48 hours of your inquiry.",
+                stat_1: "Average B2B Quote Turnaround",
+                stat_2: "Japan-Based Local Operations",
+                stat_3: "English, Turkish, Spanish & Japanese",
+                stat_4: "On-Tour Emergency Ground Support",
+                partner_cta_t: "2026–2027 Season Contracting Open",
+                partner_cta_d: "Contact us directly for series group allocations and bespoke quotes.",
+                partner_cta_btn: "Contact Us",
+                form_kicker: "PROPOSAL & PARTNERSHIP INQUIRY",
+                form_title: "Request a Custom Proposal for Japan",
+                form_subtitle: "Share your estimated travel dates and group size; our Tokyo team will prepare a tailored itinerary and net B2B quotation.",
+                lbl_type: "Inquiry Type",
+                opt_b2b: "B2B Travel Agency / Tour Operator",
+                opt_private: "Private Group / VIP Family Journey",
+                lbl_agency: "Agency Name / Full Name *",
+                lbl_email: "Corporate Email Address *",
+                lbl_date: "Estimated Arrival Date *",
+                lbl_pax: "Estimated Pax Count *",
+                lbl_airport: "Arrival / Departure Routing",
+                lbl_notes: "Program Preferences, Hotel Category & Special Notes",
+                btn_submit: "Send Inquiry to Tokyo Office",
+                confirm_title: "Your Inquiry Has Been Submitted!",
+                confirm_desc: "Our operations team at EJDER JAPAN Co., Ltd. will review your request and respond within 24–48 hours.",
+                btn_new_inquiry: "Submit another inquiry",
+                footer_about: "Registered destination management company based in Japan. Trusted local ground partner for tour operators across Turkey, Latin America, and worldwide.",
+                kaisha_title: "Official Corporate Profile (Kaisha Gaiyo)",
+                kg_name_l: "Company Name:",
+                kg_loc_l: "Headquarters:",
+                kg_loc_v: "Tokyo, Japan (Registered Corporate Headquarters)",
+                kg_scope_l: "Business Scope:",
+                kg_scope_v: "Inbound Travel Operations, B2B DMC Ground Handling, Hotel & Transport Contracting",
+                kg_lic_l: "Travel License:",
+                kg_lic_v: "Japan Class 3 Registered Travel Agency (第3種旅行業)",
+                kg_contact_l: "Corporate Email:",
+                footer_note: "Operating in compliance with the Japan Travel Agency Act (旅行業法).",
+                modal_note: "* This itinerary can be customized to match your group's exact needs.",
+                modal_cta: "Request B2B Quote for This Route"
+            }
+        };
+
+        const itineraryData = {
+            golden: {
+                tr: {
+                    badge: "10 GÜN / 9 GECE • İMZA ROTA",
+                    title: "Klasik Altın Rota (Tokyo – Fuji – Kyoto – Osaka)",
+                    days: [
+                        { day: "1. Gün", title: "Tokyo’ya Varış", desc: "Narita veya Haneda Havalimanı’nda özel karşılama ve Tokyo merkezdeki otele transfer." },
+                        { day: "2. Gün", title: "Geleneksel & Modern Tokyo", desc: "Asakusa Senso-ji Tapınağı, Nakamise Caddesi, Meiji Tapınağı ve Shibuya Crossing gezisi." },
+                        { day: "3. Gün", title: "Tokyo Serbest Gün / Opsiyonel Keşif", desc: "Misafirlerin Ginza, Akihabara veya TeamLab deneyimleri için serbest gün (rehberlik desteği opsiyonel)." },
+                        { day: "4. Gün", title: "Fuji Dağı & Hakone Bölgesi", desc: "Ashi Gölü tekne turu, Owakudani Vadisi ve hava durumuna bağlı Fuji 5. İstasyon panoraması." },
+                        { day: "5. Gün", title: "Shinkansen ile Kyoto’ya Geçiş", desc: "Büyük bagajların özel araçla otele transferi; grubun hızlı tren (Shinkansen) ile Kyoto İstasyonu’na varışı ve otele transfer." },
+                        { day: "6. Gün", title: "Kyoto’nun İkonik Tapınakları", desc: "Fushimi Inari Tapınağı (Bin Torii Kapısı), Altın Köşk (Kinkaku-ji) ve tarihi Gion bölgesi yürüyüşü." },
+                        { day: "7. Gün", title: "Arashiyama Bambu Ormanı & Nijo Kalesi", desc: "Arashiyama bambu korusu, Togetsukyo Köprüsü ve Samuray dönemi Nijo Kalesi." },
+                        { day: "8. Gün", title: "Nara Geyik Parkı & Osaka’ya Geçiş", desc: "Nara Todai-ji Tapınağı ziyareti sonrası Osaka’ya transfer ve akşam Dotonbori gastronomi turu." },
+                        { day: "9. Gün", title: "Osaka Kalesi & Serbest Alışveriş", desc: "Osaka Kalesi parkı gezisi ve Shinsaibashi bölgesinde serbest zaman." },
+                        { day: "10. Gün", title: "Kansai Havalimanı Dönüş Transferi", desc: "Uçuş saatine göre özel araçla Kansai Uluslararası Havalimanı’na (KIX) transfer." }
+                    ]
+                },
+                en: {
+                    badge: "10 DAYS / 9 NIGHTS • SIGNATURE ROUTE",
+                    title: "Classic Golden Route (Tokyo – Fuji – Kyoto – Osaka)",
+                    days: [
+                        { day: "Day 1", title: "Arrival in Tokyo", desc: "Private airport meet-and-greet at Narita or Haneda Airport and transfer to central Tokyo hotel." },
+                        { day: "Day 2", title: "Traditional & Modern Tokyo", desc: "Asakusa Senso-ji Temple, Nakamise Street, Meiji Jingu Shrine, and Shibuya Crossing." },
+                        { day: "Day 3", title: "Tokyo Leisure / Optional Exploration", desc: "Free day for guests to explore Ginza, Akihabara, or TeamLab digital art museums." },
+                        { day: "Day 4", title: "Mt. Fuji & Hakone Excursion", desc: "Lake Ashi cruise, Owakudani Volcanic Valley, and Mt. Fuji 5th Station viewpoint." },
+                        { day: "Day 5", title: "Shinkansen Bullet Train to Kyoto", desc: "Separate luggage transfer to Kyoto hotel; guests board the Shinkansen arriving at Kyoto Station with seamless transfer." },
+                        { day: "Day 6", title: "Iconic Temples of Kyoto", desc: "Fushimi Inari Shrine (Thousand Torii Gates), Kinkaku-ji (Golden Pavilion), and historic Gion district." },
+                        { day: "Day 7", title: "Arashiyama Bamboo Grove & Nijo Castle", desc: "Sagano Bamboo Forest, Togetsukyo Bridge, and Nijo Castle." },
+                        { day: "Day 8", title: "Nara Deer Park & Transfer to Osaka", desc: "Todai-ji Great Buddha in Nara followed by transfer to Osaka and evening Dotonbori street food walk." },
+                        { day: "Day 9", title: "Osaka Castle & Leisure", desc: "Osaka Castle Park visit and free afternoon in Shinsaibashi." },
+                        { day: "Day 10", title: "Departure from Kansai Airport (KIX)", desc: "Private transfer to Kansai International Airport for return flight." }
+                    ]
+                }
+            },
+            sakura: {
+                tr: {
+                    badge: "8 GÜN / 7 GECE • İLKBAHAR ÖZEL",
+                    title: "Sakura Kiraz Çiçekleri Özel Rotası",
+                    days: [
+                        { day: "1. Gün", title: "Tokyo Varış", desc: "Havalimanı karşılama ve Tokyo oteline yerleşme." },
+                        { day: "2. Gün", title: "Ueno Park & Chidorigafuchi Sakura Yürüyüşü", desc: "Tokyo’nun en ünlü kiraz çiçeği noktalarında Hanami deneyimi ve Asakusa gezisi." },
+                        { day: "3. Gün", title: "Kawaguchiko Gölü & Chureito Pagoda", desc: "Fuji Dağı ve Sakura çiçeklerinin birleştiği ikonik Chureito Pagoda manzarası." },
+                        { day: "4. Gün", title: "Shinkansen ile Kyoto’ya Yolculuk", desc: "Kyoto’ya varış ve akşam Maruyama Parkı’nda ışıklandırılmış Sakura gezisi." },
+                        { day: "5. Gün", title: "Filozof Yolu & Kiyomizu-dera", desc: "Sakura ağaçlarıyla çevrili Filozof Yolu (Tetsugaku no Michi) ve tarihi Kiyomizu-dera Tapınağı." },
+                        { day: "6. Gün", title: "Arashiyama & Kamo Nehri", desc: "Arashiyama nehir kıyısında bahar manzaraları ve geleneksel çay seremonisi." },
+                        { day: "7. Gün", title: "Kobe Limanı & Osaka", desc: "Kobe sahil gezisi ve öğleden sonra Osaka Kalesi bahçelerinde Sakura yürüyüşü." },
+                        { day: "8. Gün", title: "Kansai Havalimanı Dönüş", desc: "Özel transfer ile Kansai Havalimanı’ndan (KIX) ayrılış." }
+                    ]
+                },
+                en: {
+                    badge: "8 DAYS / 7 NIGHTS • SPRING SPECIAL",
+                    title: "Sakura Cherry Blossom Special Route",
+                    days: [
+                        { day: "Day 1", title: "Arrival in Tokyo", desc: "Airport meet-and-greet and transfer to Tokyo hotel." },
+                        { day: "Day 2", title: "Ueno Park & Chidorigafuchi Sakura", desc: "Hanami blossom viewing at Tokyo's premier cherry blossom spots and Asakusa." },
+                        { day: "Day 3", title: "Lake Kawaguchiko & Chureito Pagoda", desc: "Iconic Mt. Fuji framed by cherry blossoms at Chureito Pagoda." },
+                        { day: "Day 4", title: "Shinkansen to Kyoto", desc: "Bullet train to Kyoto followed by evening illuminated blossoms at Maruyama Park." },
+                        { day: "Day 5", title: "Philosopher's Path & Kiyomizu-dera", desc: "Canal-side cherry blossom walk along Philosopher's Path and Kiyomizu-dera Temple." },
+                        { day: "Day 6", title: "Arashiyama & Tea Ceremony", desc: "Spring scenery in Arashiyama and authentic Japanese matcha tea ceremony." },
+                        { day: "Day 7", title: "Kobe Harbor & Osaka Castle", desc: "Kobe waterfront visit and afternoon Sakura walk in Osaka Castle Gardens." },
+                        { day: "Day 8", title: "Departure via Kansai Airport", desc: "Private transfer to KIX Airport for departure." }
+                    ]
+                }
+            },
+            momiji: {
+                tr: {
+                    badge: "9 GÜN / 8 GECE • SONBAHAR & RYOKAN",
+                    title: "Momiji Sonbahar & Onsen Ryokan Deneyimi",
+                    days: [
+                        { day: "1. Gün", title: "Tokyo Varış", desc: "Havalimanı karşılama ve Tokyo oteline transfer." },
+                        { day: "2. Gün", title: "Nikko Sonbahar Renkleri", desc: "UNESCO mirası Toshogu Tapınağı ve kızıl akçaağaçlarla bezeli Irohazaka geçidi." },
+                        { day: "3. Gün", title: "Tokyo Kültür & Gastronomi", desc: "Meiji Tapınağı, Omotesando ve Rikugien Bahçesi sonbahar gezisi." },
+                        { day: "4. Gün", title: "Hakone Onsen Ryokan Konaklaması", desc: "Geleneksel tatami odalı Ryokan’a giriş, doğal kaplıca (Onsen) ve Kaiseki akşam yemeği." },
+                        { day: "5. Gün", title: "Shinkansen ile Kyoto’ya Geçiş", desc: "Odawara İstasyonu’ndan Shinkansen ile Kyoto’ya varış ve Gion akşam yürüyüşü." },
+                        { day: "6. Gün", title: "Tofuku-ji & Kiyomizu-dera Momiji", desc: "Kyoto’nun en ünlü kızıl yaprak manzaralarına sahip Tofuku-ji Tapınağı." },
+                        { day: "7. Gün", title: "Arashiyama & Altın Köşk", desc: "Sonbahar renkleriyle Kinkaku-ji ve Arashiyama bölgesi." },
+                        { day: "8. Gün", title: "Nara & Osaka", desc: "Nara Tapınakları ziyareti ve Osaka’da veda akşam yemeği." },
+                        { day: "9. Gün", title: "Kansai Havalimanı Dönüş", desc: "Özel transfer ile havalimanına uğurlama." }
+                    ]
+                },
+                en: {
+                    badge: "9 DAYS / 8 NIGHTS • AUTUMN & RYOKAN",
+                    title: "Momiji Autumn & Onsen Ryokan Experience",
+                    days: [
+                        { day: "Day 1", title: "Arrival in Tokyo", desc: "Airport meet-and-greet and hotel transfer." },
+                        { day: "Day 2", title: "Nikko Autumn Foliage", desc: "UNESCO Toshogu Shrine and scenic autumn mountain roads." },
+                        { day: "Day 3", title: "Tokyo Culture & Gardens", desc: "Meiji Shrine, Omotesando, and Rikugien Landscape Garden." },
+                        { day: "Day 4", title: "Hakone Onsen Ryokan Stay", desc: "Check-in to a traditional tatami Ryokan with natural hot springs and Kaiseki dinner." },
+                        { day: "Day 5", title: "Shinkansen to Kyoto", desc: "Bullet train from Odawara to Kyoto and evening walk in Gion." },
+                        { day: "Day 6", title: "Tofuku-ji & Kiyomizu-dera Momiji", desc: "Famous crimson maple foliage at Tofuku-ji Temple." },
+                        { day: "Day 7", title: "Arashiyama & Golden Pavilion", desc: "Kinkaku-ji and Arashiyama hills in peak autumn colors." },
+                        { day: "Day 8", title: "Nara & Osaka", desc: "Nara excursion followed by farewell dinner in Osaka." },
+                        { day: "Day 9", title: "Departure from Kansai Airport", desc: "Private airport transfer for return flight." }
+                    ]
+                }
+            }
+        };
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+
+            // Buton aktiflik stilleri
+            const btnTr = document.getElementById('btn-tr');
+            const btnEn = document.getElementById('btn-en');
+            if (lang === 'tr') {
+                btnTr.className = "px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-sumi text-white shadow-sm";
+                btnEn.className = "px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-stone-600 hover:text-sumi";
+            } else {
+                btnEn.className = "px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-sumi text-white shadow-sm";
+                btnTr.className = "px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-stone-600 hover:text-sumi";
+            }
+
+            // Metinleri güncelle
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function openItineraryModal(routeKey) {
+            const data = itineraryData[routeKey][currentLang];
+            document.getElementById('modal-badge').textContent = data.badge;
+            document.getElementById('modal-title').textContent = data.title;
+
+            const body = document.getElementById('modal-body');
+            body.innerHTML = data.days.map(item => `
+                <div class="flex gap-4 p-4 rounded-2xl bg-white border border-stone-200/80">
+                    <div class="px-3 py-1.5 rounded-xl bg-sumi text-amber-300 font-bold text-xs h-fit shrink-0">
+                        ${item.day}
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sumi text-base">${item.title}</h4>
+                        <p class="text-stone-600 text-xs sm:text-sm mt-1 leading-relaxed">${item.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            const modal = document.getElementById('itinerary-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeItineraryModal() {
+            const modal = document.getElementById('itinerary-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        // Modal dışına tıklayınca kapatma
+        document.getElementById('itinerary-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeItineraryModal();
+            }
+        });
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const type = document.querySelector('input[name="inquiryType"]:checked').value;
+            const agency = document.getElementById('agencyName').value;
+            const email = document.getElementById('email').value;
+            const date = document.getElementById('travelDate').value;
+            const pax = document.getElementById('paxCount').value;
+            const airport = document.getElementById('airport').value;
+            const notes = document.getElementById('notes').value || '-';
+
+            const summary = document.getElementById('confirm-summary');
+            summary.innerHTML = `
+                <p><strong>${currentLang === 'tr' ? 'Talep Türü:' : 'Type:'}</strong> ${type}</p>
+                <p><strong>${currentLang === 'tr' ? 'Acente / İsim:' : 'Agency / Name:'}</strong> ${agency} (${email})</p>
+                <p><strong>${currentLang === 'tr' ? 'Tarih & Kişi:' : 'Date & Pax:'}</strong> ${date} • ${pax} Pax</p>
+                <p><strong>${currentLang === 'tr' ? 'Uçuş Hattı:' : 'Routing:'}</strong> ${airport}</p>
+                <p><strong>${currentLang === 'tr' ? 'Notlar:' : 'Notes:'}</strong> ${notes}</p>
+            `;
+
+            document.getElementById('inquiry-form').classList.add('hidden');
+            document.getElementById('form-confirmation').classList.remove('hidden');
+        }
+
+        function resetInquiryForm() {
+            document.getElementById('inquiry-form').reset();
+            document.getElementById('inquiry-form').classList.remove('hidden');
+            document.getElementById('form-confirmation').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
