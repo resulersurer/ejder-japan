@@ -23,4 +23,15 @@ Domain bağlantısı Vercel projesinde korunur. Bu dönüşüm DNS ayarlarını 
 
 ## İletişim formu
 
-Form şu an doğrulanmış bilgileri önizler; e-posta göndermez veya veri kaydetmez. Yandex posta kutusu ve sunucu tarafı gönderim entegrasyonu sonraki aşamadır. Parola veya SMTP kimlik bilgilerini frontend koduna eklemeyin.
+Form `/api/inquiry` Vercel Function'ına POST yapar. Doğrulanmış talepler Yandex SMTP (`smtp.yandex.com:465`, TLS) üzerinden yalnızca `info@ejderjapan.com` adresine gönderilir. Yanıtla adresi müşterinin e-postasıdır. SMTP kabulü alınmadan başarı gösterilmez; hata durumunda form bilgileri korunur.
+
+Vercel Project Settings → Environment Variables bölümüne Production ortamı için ekleyin:
+
+- `SMTP_USER`: `info@ejderjapan.com`
+- `SMTP_PASSWORD`: Yandex ID → Uygulama şifreleri → Mail bölümünden oluşturulan uygulama şifresi (Secret/Sensitive).
+
+Yandex Mail ayarlarında e-posta istemcileri ve uygulama şifreleri erişimi açık olmalıdır. https://yandex.com/support/yandex-360/business/mail/en/mail-clients/others
+
+Şifreyi frontend koduna veya Git'e eklemeyin. Değişkenler eklendikten sonra yeniden deploy edin. Vercel Function'ı yerelde çalıştırmak için `vercel dev` kullanılır; `npm start` yalnızca Angular arayüzünü sunar. E-posta servisi testi gerçek SMTP kimlik bilgileri gerektirir.
+
+`npm test` ile giriş doğrulama, alıcı sabitleme ve SMTP hata yolları test edilir; bu testler gerçek e-posta göndermez.

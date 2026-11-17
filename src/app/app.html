@@ -397,7 +397,12 @@
             </div>
 
             <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-stone-200/90">
-                <form id="inquiry-form" [class.hidden]="summary() !== null" (submit)="previewInquiry($event)" class="space-y-6">
+                <form id="inquiry-form" [class.hidden]="summary() !== null" [attr.aria-busy]="sending()" (submit)="submitInquiry($event)">
+                    <fieldset [disabled]="sending()" class="space-y-6">
+                    <div class="hidden" aria-hidden="true">
+                        <label for="website">Website</label>
+                        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+                    </div>
                     <!-- Talep Türü Seçimi -->
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-stone-500 mb-2" [innerHTML]="t('lbl_type')"></label>
@@ -422,12 +427,12 @@
                     <div class="grid sm:grid-cols-2 gap-6">
                         <div>
                             <label for="agencyName" class="block text-sm font-semibold text-sumi mb-2" [innerHTML]="t('lbl_agency')"></label>
-                            <input type="text" id="agencyName" name="agencyName" required placeholder="Örn: ABC Turizm / Ahmet Yılmaz"
+                            <input type="text" id="agencyName" name="agencyName" maxlength="160" required placeholder="Örn: ABC Turizm / Ahmet Yılmaz"
                                    class="w-full px-4 py-3 rounded-xl bg-washi border border-stone-300 focus:border-torii focus:ring-2 focus:ring-torii/20 outline-none text-sm transition-all">
                         </div>
                         <div>
                             <label for="email" class="block text-sm font-semibold text-sumi mb-2" [innerHTML]="t('lbl_email')"></label>
-                            <input type="email" id="email" name="email" required placeholder="operasyon@acenteniz.com"
+                            <input type="email" id="email" name="email" maxlength="254" required placeholder="operasyon@acenteniz.com"
                                    class="w-full px-4 py-3 rounded-xl bg-washi border border-stone-300 focus:border-torii focus:ring-2 focus:ring-torii/20 outline-none text-sm transition-all">
                         </div>
                     </div>
@@ -456,18 +461,22 @@
 
                     <div>
                         <label for="notes" class="block text-sm font-semibold text-sumi mb-2" [innerHTML]="t('lbl_notes')"></label>
-                        <textarea id="notes" name="notes" rows="4" placeholder="Örn: 4 yıldızlı merkezi oteller, 1 gece Hakone Ryokan konaklaması, Türkçe veya İngilizce rehberlik talebi..."
+                        <textarea id="notes" name="notes" maxlength="5000" rows="4" placeholder="Örn: 4 yıldızlı merkezi oteller, 1 gece Hakone Ryokan konaklaması, Türkçe veya İngilizce rehberlik talebi..."
                                   class="w-full px-4 py-3 rounded-xl bg-washi border border-stone-300 focus:border-torii focus:ring-2 focus:ring-torii/20 outline-none text-sm transition-all"></textarea>
                     </div>
 
-                    <button type="submit" class="w-full py-4 px-6 rounded-xl bg-torii hover:bg-toriiDark text-white font-bold text-base shadow-lg shadow-torii/20 transition-all flex items-center justify-center gap-2">
-                        <span [innerHTML]="t('btn_submit')"></span>
+                    <button type="submit" [disabled]="sending()" class="w-full py-4 px-6 rounded-xl bg-torii hover:bg-toriiDark text-white font-bold text-base shadow-lg shadow-torii/20 transition-all flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-wait">
+                        <span>{{ t(sending() ? 'btn_sending' : 'btn_submit') }}</span>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
                     </button>
+                    </fieldset>
+                    @if (submissionError()) {
+                        <p role="alert" class="mt-4 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">{{ t(submissionError()) }}</p>
+                    }
                 </form>
 
                 <!-- Form Gönderim Onay Kutusu (alert() yerine özel mesaj kutusu) -->
-                <div id="form-confirmation" role="status" [class.hidden]="summary() === null" class="mt-6 p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950">
+                <div id="form-confirmation" role="status" tabindex="-1" [class.hidden]="summary() === null" class="mt-6 p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950">
                     <div class="flex items-start gap-4">
                         <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
@@ -574,5 +583,3 @@
             </div>
         </div>
     </div>
-
-    

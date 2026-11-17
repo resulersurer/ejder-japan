@@ -10,10 +10,13 @@ export class App {
   private readonly document = inject(DOCUMENT);
   private previousFocus: HTMLElement | null = null;
   private previousOverflow = '';
+  private submittedData: FormData | null = null;
   readonly language = signal<Language>('tr');
   readonly menuOpen = signal(false);
   readonly activeRoute = signal<Route | null>(null);
   readonly summary = signal<{ label: string; value: string }[] | null>(null);
+  readonly sending = signal(false);
+  readonly submissionError = signal('');
   readonly itinerary = computed(() => {
     const route = this.activeRoute();
     return route ? content.itineraryData[route][this.language()] : null;
@@ -26,7 +29,7 @@ export class App {
   setLanguage(language: Language): void {
     this.language.set(language);
     this.document.documentElement.lang = language;
-    if (this.summary()) this.updateSummary(this.document.querySelector<HTMLFormElement>('#inquiry-form')!);
+    if (this.submittedData) this.updateSummary(this.submittedData);
   }
 
   toggleMobileMenu(): void { this.menuOpen.update(open => !open); }
@@ -61,14 +64,38 @@ export class App {
     else if (!event.shiftKey && this.document.activeElement === last) { event.preventDefault(); first.focus(); }
   }
 
-  previewInquiry(event: Event): void {
+  async submitInquiry(event: Event): Promise<void> {
     event.preventDefault();
+    if (this.sending()) return;
     const form = event.target as HTMLFormElement;
-    if (form.reportValidity()) this.updateSummary(form);
+    if (!form.reportValidity()) return;
+    const formData = new FormData(form);
+    const payload: Record<string, FormDataEntryValue> = {};
+    formData.forEach((value, key) => { payload[key] = value; });
+    this.submissionError.set('');
+    this.sending.set(true);
+    try {
+      const response = await fetch('/api/inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json();
+      if (!response.ok || result.ok !== true) {
+        this.submissionError.set(response.status === 400 ? 'form_invalid' : 'form_error');
+        return;
+      }
+      this.submittedData = formData;
+      this.updateSummary(formData);
+      setTimeout(() => this.document.querySelector<HTMLElement>('#form-confirmation')?.focus());
+    } catch {
+      this.submissionError.set('form_error');
+    } finally {
+      this.sending.set(false);
+    }
   }
 
-  private updateSummary(form: HTMLFormElement): void {
-    const data = new FormData(form);
+  private updateSummary(data: FormData): void {
     const keys = ['inquiryType', 'agencyName', 'email', 'travelDate', 'paxCount', 'airport', 'notes'];
     const labels = this.language() === 'tr'
       ? ['Talep türü', 'Acente / İsim', 'E-posta', 'Tarih', 'Kişi sayısı', 'Uçuş hattı', 'Notlar']
@@ -76,7 +103,13 @@ export class App {
     this.summary.set(keys.map((key, i) => ({ label: labels[i], value: String(data.get(key) || '—') })));
   }
 
-  resetInquiryForm(): void { this.summary.set(null); }
+  resetInquiryForm(): void {
+    this.document.querySelector<HTMLFormElement>('#inquiry-form')?.reset();
+    this.summary.set(null);
+    this.submittedData = null;
+    this.submissionError.set('');
+    setTimeout(() => this.document.querySelector<HTMLElement>('#agencyName')?.focus());
+  }
 
   imageFallback(event: Event, source: string): void {
     const image = event.target as HTMLImageElement;
