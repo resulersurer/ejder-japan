@@ -1,8 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, computed, HostListener, inject, signal } from '@angular/core';
-import { content } from './content';
+import { content, languageOptions, isLanguage, inquiryValue, type Language } from './localization';
 
-type Language = keyof typeof content.translations;
 type Route = keyof typeof content.itineraryData;
 
 @Component({ selector: 'app-root', standalone: true, templateUrl: './app.html' })
@@ -12,6 +11,7 @@ export class App {
   private previousOverflow = '';
   private submittedData: FormData | null = null;
   readonly language = signal<Language>('tr');
+  readonly languageOptions = languageOptions;
   readonly menuOpen = signal(false);
   readonly activeRoute = signal<Route | null>(null);
   readonly summary = signal<{ label: string; value: string }[] | null>(null);
@@ -22,6 +22,13 @@ export class App {
     return route ? content.itineraryData[route][this.language()] : null;
   });
 
+  constructor() {
+    try {
+      const saved = this.document.defaultView?.localStorage.getItem('ejder-japan-language') ?? null;
+      if (isLanguage(saved)) this.setLanguage(saved);
+    } catch { /* The site also works when browser storage is unavailable. */ }
+  }
+
   t(key: string): string {
     return (content.translations[this.language()] as Record<string, string>)[key] ?? key;
   }
@@ -29,7 +36,15 @@ export class App {
   setLanguage(language: Language): void {
     this.language.set(language);
     this.document.documentElement.lang = language;
+    this.document.title = `EJDER JAPAN K.K. | ${this.t('hero_title')}`;
+    this.document.querySelector('meta[name="description"]')?.setAttribute('content', this.t('hero_subtitle'));
+    try { this.document.defaultView?.localStorage.setItem('ejder-japan-language', language); } catch { /* Optional preference storage. */ }
     if (this.submittedData) this.updateSummary(this.submittedData);
+  }
+
+  changeLanguage(event: Event): void {
+    const value = (event.target as HTMLSelectElement).value;
+    if (isLanguage(value)) this.setLanguage(value);
   }
 
   toggleMobileMenu(): void { this.menuOpen.update(open => !open); }
@@ -97,10 +112,8 @@ export class App {
 
   private updateSummary(data: FormData): void {
     const keys = ['inquiryType', 'agencyName', 'email', 'travelDate', 'paxCount', 'airport', 'notes'];
-    const labels = this.language() === 'tr'
-      ? ['Talep türü', 'Acente / İsim', 'E-posta', 'Tarih', 'Kişi sayısı', 'Uçuş hattı', 'Notlar']
-      : ['Inquiry type', 'Agency / Name', 'Email', 'Date', 'Guests', 'Routing', 'Notes'];
-    this.summary.set(keys.map((key, i) => ({ label: labels[i], value: String(data.get(key) || '—') })));
+    const labels = ['summary_type', 'summary_agency', 'summary_email', 'summary_date', 'summary_pax', 'summary_airport', 'summary_notes'];
+    this.summary.set(keys.map((key, i) => ({ label: this.t(labels[i]), value: inquiryValue(key, String(data.get(key) || ''), this.language()) })));
   }
 
   resetInquiryForm(): void {

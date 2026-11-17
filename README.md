@@ -1,6 +1,8 @@
 # EJDER JAPAN
 
-Angular uygulaması. Mevcut Japonya DMC tasarımı, TR/EN içerik, mobil menü ve üç rota detayı korunur. Tailwind CSS derleme sırasında üretilir.
+Angular uygulaması. Türkçe, İngilizce, Japonca, Basitleştirilmiş Çince, İspanyolca ve Korece içerik; mobil menü ve üç rota detayı içerir. Tailwind CSS derleme sırasında üretilir.
+
+Dil seçimi tarayıcıda hatırlanır. Yeni dillerin metinleri `src/app/locales/` altında bulunur; form seçeneklerinin sunucuya gönderilen değerleri sabit tutularak e-posta entegrasyonuyla uyum korunur. Operasyon ekibinin üç iletişim dili bilgisi, web sitesinin altı görüntüleme dilinden bağımsızdır.
 
 ## Yerel çalışma
 

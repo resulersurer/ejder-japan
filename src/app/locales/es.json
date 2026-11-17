@@ -1,0 +1,78 @@
+{
+  "translations": {
+    "nav_about": "Nosotros", "nav_services": "Servicios B2B", "nav_itineraries": "Itinerarios", "nav_why": "¿Por qué Ejder Japan?", "nav_profile": "Datos de la empresa", "nav_cta": "Solicitar presupuesto",
+    "hero_badge": "DMC registrada en Japón", "hero_title": "Su socio local en Japón",
+    "hero_subtitle": "Planificación impecable, experiencias auténticas y apoyo operativo profesional en todo Japón para agencias de viajes y operadores turísticos de todo el mundo.",
+    "hero_cta_primary": "Solicitar propuesta B2B", "hero_cta_secondary": "Explorar itinerarios",
+    "dest_tokyo": "Sede y operaciones", "dest_kyoto": "Red cultural y de ryokanes", "dest_osaka": "Operaciones regionales de Kansai", "dest_fuji": "Rutas privadas y de grupos",
+    "about_floating_desc": "Contratos directos con proveedores y coordinación continua sobre el terreno a cargo de nuestro equipo en Japón.",
+    "about_kicker": "IDENTIDAD CORPORATIVA", "about_title": "Un equipo local en Japón, presente en cada etapa",
+    "about_p1": "EJDER JAPAN K.K. (株式会社) es una empresa de gestión de destinos (DMC) registrada en Japón que conecta a operadores turísticos y agencias de viajes internacionales con experiencias japonesas auténticas.",
+    "about_p2": "Trabajamos directamente con las principales cadenas hoteleras de Japón, ryokanes tradicionales, guías locales acreditados y empresas de transporte privado. Desde grupos exclusivos de 9 personas hasta salidas regulares en serie, nuestro equipo gestiona cada detalle de principio a fin.",
+    "metric_1_title": "Contratación hotelera directa", "metric_1_desc": "Cupos competitivos para grupos B2B en Tokio, Osaka, Kioto y Kobe.",
+    "metric_2_title": "Operaciones locales 24/7", "metric_2_desc": "Apoyo inmediato en horario de Japón y coordinación multilingüe.",
+    "metric_3_title": "Empresa registrada en Japón", "metric_3_desc": "Constituida en Japón y conforme con el sistema de facturación cualificada.",
+    "services_kicker": "SOLUCIONES B2B Y CORPORATIVAS", "services_title": "Servicios DMC integrales en Japón para agencias de viajes",
+    "services_subtitle": "Representamos su marca con precisión, precios netos transparentes y servicios centrados en la satisfacción del viajero.",
+    "srv_1_title": "Grupos en serie y a medida", "srv_1_desc": "Itinerarios optimizados día a día, reservas en restaurantes y guías acreditados para salidas garantizadas y grupos privados.", "srv_1_tag": "Operación de grupos de 8 a 40 personas",
+    "srv_2_title": "Hoteles y ryokanes directos", "srv_2_desc": "Hoteles céntricos de 3 a 5 estrellas, como Hotel Monterey, en Tokio, Osaka, Kioto y Kobe, y ryokanes tradicionales en Hakone y el monte Fuji.", "srv_2_tag": "Cupos hoteleros en temporada alta",
+    "srv_3_title": "Traslados y Shinkansen", "srv_3_desc": "Recepción en Narita, Haneda y Kansai, autocares privados, envío de equipaje por separado (Takkyubin) y billetes de tren bala.", "srv_3_tag": "Logística puntual y cómoda",
+    "srv_4_title": "Viajes a medida y MICE", "srv_4_desc": "Experiencias gastronómicas y culturales para viajes de incentivo, ferias, lunas de miel, familias VIP y delegaciones empresariales.", "srv_4_tag": "Planificación flexible y personalizada",
+    "itin_kicker": "NUESTROS PROGRAMAS EMBLEMÁTICOS", "itin_title": "Itinerarios de ejemplo para agencias", "itin_subtitle": "Todos los programas pueden adaptarse a los horarios de vuelo, la categoría del hotel y el tiempo libre que desee su grupo.",
+    "route1_badge": "10 días / 9 noches", "route1_title": "Ruta Dorada clásica", "route1_desc": "El equilibrio ideal para una primera visita: Tokio moderno, vistas del Fuji, templos de Kioto, Nara y la gastronomía de Osaka.",
+    "route2_badge": "8 días / 7 noches • Primavera", "route2_title": "Ruta especial de los cerezos en flor", "route2_desc": "Disfrute de la floración de finales de marzo y principios de abril en parques emblemáticos, paseos junto al río y jardines históricos.",
+    "route3_badge": "9 días / 8 noches • Otoño", "route3_title": "Momiji otoñal y ryokan con onsen", "route3_desc": "Arces rojos en noviembre, jardines de templos, alojamiento en un ryokan termal y una cena tradicional kaiseki.",
+    "btn_view_itinerary": "Ver el programa día a día",
+    "why_kicker": "NUESTRA VENTAJA OPERATIVA", "why_title": "Ventajas de contar con un socio local en Japón", "why_desc": "Las condiciones de reserva, las barreras lingüísticas y la demanda estacional de Japón requieren relaciones locales sólidas. EJDER JAPAN K.K. (株式会社) facilita toda la operación a sus agencias colaboradoras.",
+    "why_1_t": "Puente multilingüe (TR / EN / JP)", "why_1_d": "Negociamos en japonés con hoteles y proveedores y le informamos de forma rápida y clara en su idioma de trabajo.",
+    "why_2_t": "Itinerarios realistas y fluidos", "why_2_d": "Diseñamos rutas adaptadas a los horarios del Shinkansen y al envío de equipaje, con un ritmo cómodo sobre el terreno.",
+    "why_3_t": "Precios transparentes y respuesta rápida", "why_3_d": "Respondemos a las solicitudes de grupos en un plazo de 24 horas con un presupuesto B2B neto y desglosado.",
+    "stat_1": "Tiempo medio de preparación de presupuestos B2B", "stat_2": "Operaciones locales con sede en Japón", "stat_3_value": "3 idiomas", "stat_3": "Turco, inglés y japonés", "stat_4": "Asistencia de emergencia durante el viaje",
+    "partner_cta_d": "Contáctenos directamente para los cupos de grupos en serie.", "partner_cta_btn": "Contactar",
+    "form_kicker": "PRESUPUESTOS Y COLABORACIONES", "form_title": "Solicite una propuesta para Japón", "form_subtitle": "Indique las fechas previstas y el número de viajeros; nuestra oficina de Tokio preparará un programa y un presupuesto a medida.",
+    "lbl_type": "Tipo de solicitud", "opt_b2b": "Agencia de viajes / Operador turístico B2B", "opt_private": "Grupo privado / Viaje familiar VIP", "lbl_agency": "Agencia / Nombre y apellidos *", "lbl_email": "Correo electrónico corporativo *", "lbl_date": "Fecha prevista de llegada *", "lbl_pax": "Número estimado de viajeros *", "lbl_airport": "Ruta de llegada y salida", "lbl_notes": "Preferencias, categoría hotelera y observaciones",
+    "btn_submit": "Enviar solicitud", "btn_sending": "Enviando…", "form_invalid": "Revise los datos del formulario e inténtelo de nuevo.", "form_error": "No pudimos confirmar el envío. Sus datos siguen en esta página. Inténtelo de nuevo o escriba a info@ejderjapan.com.", "confirm_title": "Su solicitud ha sido enviada", "confirm_desc": "Hemos enviado su solicitud a info@ejderjapan.com. Nuestro equipo se pondrá en contacto con usted.", "btn_new_inquiry": "Crear otra solicitud",
+    "footer_about": "Empresa de viajes y gestión de destinos con sede en Japón. Socio local de confianza para operadores de Turquía, Latinoamérica y todo el mundo.",
+    "kaisha_title": "Datos de la empresa (Kaisha Gaiyo)", "kg_name_l": "Razón social:", "kg_loc_l": "Sede:", "kg_loc_v": "Shibuya Miyata Building<br>1-12-14 Jinnan Shibuyaku<br>Tokyo 150-0041", "kg_scope_l": "Actividad:", "kg_scope_v": "Turismo receptivo, servicios DMC B2B, contratación hotelera y organización de traslados", "kg_contact_l": "Correo corporativo:", "footer_note": "Servicios prestados conforme a la Ley de Agencias de Viajes de Japón (旅行業法).", "modal_note": "* Este programa puede adaptarse a las necesidades de su grupo.", "modal_cta": "Solicitar presupuesto B2B de esta ruta"
+  },
+  "ui": {
+    "language_label": "Idioma", "menu_label": "Menú", "close_label": "Cerrar", "ph_agency": "Ej.: Agencia ABC / María García", "ph_email": "operaciones@suagencia.com", "ph_notes": "Ej.: hoteles céntricos de 4 estrellas, una noche en un ryokan en Hakone, preferencias de guía…",
+    "airport_tokyo_osaka": "Llegada a Tokio → Salida de Osaka", "airport_tokyo_tokyo": "Llegada a Tokio → Salida de Tokio", "airport_osaka_tokyo": "Llegada a Osaka → Salida de Tokio", "airport_undecided": "Por confirmar",
+    "summary_type": "Tipo", "summary_agency": "Agencia / Nombre", "summary_email": "Correo", "summary_date": "Fecha", "summary_pax": "Viajeros", "summary_airport": "Ruta", "summary_notes": "Observaciones", "registered_label": "EMPRESA REGISTRADA EN JAPÓN", "rights": "Todos los derechos reservados."
+  },
+  "itineraries": {
+    "golden": { "badge": "10 DÍAS / 9 NOCHES • RUTA EMBLEMÁTICA", "title": "Ruta Dorada clásica (Tokio – Fuji – Kioto – Osaka)", "days": [
+      ["Llegada a Tokio", "Recepción privada en Narita o Haneda y traslado a un hotel del centro de Tokio."],
+      ["Tokio tradicional y moderno", "Visita al templo Senso-ji, la calle Nakamise, el santuario Meiji y el cruce de Shibuya."],
+      ["Día libre en Tokio", "Tiempo libre para descubrir Ginza, Akihabara o los museos digitales teamLab; guía opcional."],
+      ["Monte Fuji y Hakone", "Crucero por el lago Ashi, valle de Owakudani y vistas desde la quinta estación del Fuji, según el tiempo."],
+      ["Shinkansen a Kioto", "Envío separado del equipaje y viaje en tren bala a Kioto con traslado al hotel."],
+      ["Templos emblemáticos de Kioto", "Visita a Fushimi Inari, Kinkaku-ji y el histórico barrio de Gion."],
+      ["Arashiyama y castillo de Nijo", "Bosque de bambú de Sagano, puente Togetsukyo y castillo de Nijo."],
+      ["Nara y traslado a Osaka", "Visita al gran Buda de Todai-ji y paseo gastronómico nocturno por Dotonbori."],
+      ["Castillo de Osaka y tiempo libre", "Paseo por el parque del castillo y tarde libre en Shinsaibashi."],
+      ["Salida desde Kansai", "Traslado privado al Aeropuerto Internacional de Kansai (KIX) según el horario del vuelo."]
+    ] },
+    "sakura": { "badge": "8 DÍAS / 7 NOCHES • ESPECIAL PRIMAVERA", "title": "Ruta especial de los cerezos en flor", "days": [
+      ["Llegada a Tokio", "Recepción en el aeropuerto y traslado al hotel en Tokio."],
+      ["Ueno y Chidorigafuchi", "Hanami en los principales lugares de floración de Tokio y visita a Asakusa."],
+      ["Lago Kawaguchiko y pagoda Chureito", "Vistas del monte Fuji enmarcado por cerezos en flor desde la pagoda Chureito."],
+      ["Shinkansen a Kioto", "Viaje en tren bala y visita nocturna a los cerezos iluminados del parque Maruyama."],
+      ["Camino del Filósofo y Kiyomizu-dera", "Paseo junto al canal bordeado de cerezos y visita al histórico templo Kiyomizu-dera."],
+      ["Arashiyama y ceremonia del té", "Paisajes primaverales y una auténtica ceremonia japonesa de té matcha."],
+      ["Puerto de Kobe y castillo de Osaka", "Visita al frente marítimo de Kobe y paseo entre cerezos en los jardines del castillo de Osaka."],
+      ["Salida desde Kansai", "Traslado privado al aeropuerto de Kansai (KIX)."]
+    ] },
+    "momiji": { "badge": "9 DÍAS / 8 NOCHES • OTOÑO Y RYOKAN", "title": "Momiji otoñal y experiencia de ryokan con onsen", "days": [
+      ["Llegada a Tokio", "Recepción en el aeropuerto y traslado al hotel."],
+      ["Colores otoñales de Nikko", "Santuario Toshogu, Patrimonio de la Humanidad, y rutas de montaña en otoño."],
+      ["Cultura y jardines de Tokio", "Visita al santuario Meiji, Omotesando y el jardín Rikugien."],
+      ["Ryokan con onsen en Hakone", "Alojamiento tradicional con tatami, aguas termales naturales y cena kaiseki."],
+      ["Shinkansen a Kioto", "Tren bala desde Odawara y paseo al atardecer por Gion."],
+      ["Momiji en Tofuku-ji y Kiyomizu-dera", "Visita a los templos para admirar los famosos arces rojos de Kioto."],
+      ["Arashiyama y Pabellón Dorado", "Kinkaku-ji y las colinas de Arashiyama en pleno color otoñal."],
+      ["Nara y Osaka", "Visita a los templos de Nara y cena de despedida en Osaka."],
+      ["Salida desde Kansai", "Traslado privado al aeropuerto para el vuelo de regreso."]
+    ] }
+  }
+}

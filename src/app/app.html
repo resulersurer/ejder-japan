@@ -6,17 +6,17 @@
             <div class="flex items-center justify-between h-20">
                 <!-- Marka Logosu -->
                 <a href="#top" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-torii flex items-center justify-center text-white font-jp font-bold text-lg shadow-sm group-hover:bg-toriiDark transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-torii hidden sm:flex items-center justify-center text-white font-jp font-bold text-lg shadow-sm group-hover:bg-toriiDark transition-colors">
                         龍
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-serif font-bold text-xl tracking-wider text-sumi leading-none">EJDER JAPAN</span>
-                        <span class="font-jp text-[11px] tracking-[0.2em] text-stone-500 mt-1">株式会社 • TOKYO DMC</span>
+                        <span class="font-serif font-bold text-sm sm:text-xl tracking-wider text-sumi leading-none">EJDER JAPAN</span>
+                        <span class="hidden sm:block font-jp text-[11px] tracking-[0.2em] text-stone-500 mt-1">株式会社 • TOKYO DMC</span>
                     </div>
                 </a>
 
                 <!-- Masaüstü Menü -->
-                <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-stone-700">
+                <nav class="hidden xl:flex items-center space-x-5 text-sm font-medium text-stone-700">
                     <a href="#about" class="hover:text-torii transition-colors" [innerHTML]="t('nav_about')"></a>
                     <a href="#services" class="hover:text-torii transition-colors" [innerHTML]="t('nav_services')"></a>
                     <a href="#itineraries" class="hover:text-torii transition-colors" [innerHTML]="t('nav_itineraries')"></a>
@@ -25,21 +25,18 @@
                 </nav>
 
                 <!-- Sağ Kontroller: Dil Değiştirici + Teklif Butonu -->
-                <div class="flex items-center gap-3">
-                    <!-- TR / EN Dil Seçici -->
-                    <div class="flex items-center bg-stone-200/80 p-1 rounded-xl border border-stone-300/60" role="group" aria-label="Language Switcher">
-                        <button id="btn-tr" (click)="setLanguage('tr')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all" [class.bg-sumi]="language() === 'tr'" [class.text-white]="language() === 'tr'" [attr.aria-pressed]="language() === 'tr'">
-                            TR
-                        </button>
-                        <button id="btn-en" (click)="setLanguage('en')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all" [class.bg-sumi]="language() === 'en'" [class.text-white]="language() === 'en'" [attr.aria-pressed]="language() === 'en'">
-                            EN
-                        </button>
-                    </div>
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <label for="site-language" class="sr-only">{{ t('language_label') }}</label>
+                    <select id="site-language" [value]="language()" (change)="changeLanguage($event)" class="max-w-[108px] sm:max-w-[132px] rounded-xl border border-stone-300 bg-stone-100 py-2.5 pl-2 pr-1 text-xs sm:text-sm font-semibold text-sumi cursor-pointer">
+                        @for (option of languageOptions; track option.code) {
+                            <option [value]="option.code" [attr.lang]="option.code">{{ option.label }}</option>
+                        }
+                    </select>
 
-                    <a href="#quote" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-torii hover:bg-toriiDark text-white text-sm font-semibold shadow-sm transition-all" [innerHTML]="t('nav_cta')"></a>
+                    <a href="#quote" class="hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-torii hover:bg-toriiDark text-white text-sm font-semibold shadow-sm transition-all" [innerHTML]="t('nav_cta')"></a>
 
                     <!-- Mobil Menü Butonu -->
-                    <button id="mobile-menu-btn" aria-controls="mobile-menu" [attr.aria-expanded]="menuOpen()" (click)="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl text-stone-700 hover:bg-stone-200/70 focus:outline-none" aria-label="Menü">
+                    <button id="mobile-menu-btn" aria-controls="mobile-menu" [attr.aria-expanded]="menuOpen()" (click)="toggleMobileMenu()" class="xl:hidden p-2 rounded-xl text-stone-700 hover:bg-stone-200/70" [attr.aria-label]="t('menu_label')">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -49,7 +46,7 @@
         </div>
 
         <!-- Mobil Açılır Menü -->
-        <div id="mobile-menu" [class.hidden]="!menuOpen()" class="lg:hidden bg-washi border-b border-stone-200 px-4 pt-2 pb-6 space-y-2 shadow-lg">
+        <div id="mobile-menu" [class.hidden]="!menuOpen()" class="xl:hidden bg-washi border-b border-stone-200 px-4 pt-2 pb-6 space-y-2 shadow-lg">
             <a href="#about" (click)="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-medium text-stone-800 hover:bg-stoneWarm" [innerHTML]="t('nav_about')"></a>
             <a href="#services" (click)="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-medium text-stone-800 hover:bg-stoneWarm" [innerHTML]="t('nav_services')"></a>
             <a href="#itineraries" (click)="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-medium text-stone-800 hover:bg-stoneWarm" [innerHTML]="t('nav_itineraries')"></a>
@@ -66,7 +63,7 @@
         <!-- Arka Plan Görseli (Fuji Dağı & Chureito Pagoda) -->
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=2000&q=85" 
-                 alt="Kyoto & Mount Fuji Japan" 
+                 alt=""
                  (error)="imageFallback($event, 'https://placehold.co/1920x1080/111827/FAF8F5?text=EJDER+JAPAN+DMC')"
                  class="w-full h-full object-cover object-center scale-105">
             <div class="absolute inset-0 hero-gradient"></div>
@@ -126,13 +123,13 @@
                 <div class="lg:col-span-5 relative">
                     <div class="rounded-2xl overflow-hidden shadow-xl border border-stone-200 aspect-[4/5]">
                         <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1000&q=85" 
-                             alt="Traditional Japanese Architecture Kyoto"
+                             [alt]="t('dest_kyoto')"
                              (error)="imageFallback($event, 'https://placehold.co/800x1000/F3EFEA/111827?text=EJDER+JAPAN+KYOTO')"
                              class="w-full h-full object-cover">
                     </div>
                     <!-- Yüzen Kurumsal Kart -->
                     <div class="mt-4 sm:mt-0 sm:absolute sm:-bottom-6 sm:-right-6 bg-sumi text-white p-6 rounded-2xl shadow-xl max-w-xs border border-stone-700">
-                        <p class="font-jp text-xs text-amber-400 tracking-widest mb-1">日本法人 • REGISTERED IN JAPAN</p>
+                        <p class="font-jp text-xs text-amber-400 tracking-widest mb-1">{{ t('registered_label') }}</p>
                         <p class="font-serif text-lg font-semibold">EJDER JAPAN株式会社</p>
                         <p class="text-xs text-stone-300 mt-2 leading-relaxed" [innerHTML]="t('about_floating_desc')"></p>
                     </div>
@@ -253,7 +250,7 @@
                 <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-all flex flex-col">
                     <div class="relative h-60 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=900&q=80" 
-                             alt="Golden Route Japan"
+                             [alt]="t('route1_title')"
                              (error)="imageFallback($event, 'https://placehold.co/800x500/111827/FAF8F5?text=Golden+Route')"
                              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                         <span class="absolute top-4 left-4 bg-sumi/90 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-lg" [innerHTML]="t('route1_badge')"></span>
@@ -275,7 +272,7 @@
                 <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-all flex flex-col">
                     <div class="relative h-60 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=900&q=80" 
-                             alt="Sakura Cherry Blossom Japan"
+                             [alt]="t('route2_title')"
                              (error)="imageFallback($event, 'https://placehold.co/800x500/B91C1C/FAF8F5?text=Sakura+Special')"
                              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                         <span class="absolute top-4 left-4 bg-torii text-white text-xs font-semibold px-3 py-1.5 rounded-lg" [innerHTML]="t('route2_badge')"></span>
@@ -297,7 +294,7 @@
                 <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-all flex flex-col">
                     <div class="relative h-60 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?auto=format&fit=crop&w=900&q=80" 
-                             alt="Momiji Autumn Leaves Kyoto"
+                             [alt]="t('route3_title')"
                              (error)="imageFallback($event, 'https://placehold.co/800x500/B45309/FAF8F5?text=Momiji+Autumn')"
                              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                         <span class="absolute top-4 left-4 bg-gold text-white text-xs font-semibold px-3 py-1.5 rounded-lg" [innerHTML]="t('route3_badge')"></span>
@@ -426,12 +423,12 @@
                     <div class="grid sm:grid-cols-2 gap-6">
                         <div>
                             <label for="agencyName" class="block text-sm font-semibold text-sumi mb-2" [innerHTML]="t('lbl_agency')"></label>
-                            <input type="text" id="agencyName" name="agencyName" maxlength="160" required placeholder="Örn: ABC Turizm / Ahmet Yılmaz"
+                            <input type="text" id="agencyName" name="agencyName" maxlength="160" required [placeholder]="t('ph_agency')"
                                    class="w-full px-4 py-3 rounded-xl bg-washi border border-stone-300 focus:border-torii focus:ring-2 focus:ring-torii/20 outline-none text-sm transition-all">
                         </div>
                         <div>
                             <label for="email" class="block text-sm font-semibold text-sumi mb-2" [innerHTML]="t('lbl_email')"></label>
-                            <input type="email" id="email" name="email" maxlength="254" required placeholder="operasyon@acenteniz.com"
+                            <input type="email" id="email" name="email" maxlength="254" required [placeholder]="t('ph_email')"
                                    class="w-full px-4 py-3 rounded-xl bg-washi border border-stone-300 focus:border-torii focus:ring-2 focus:ring-torii/20 outline-none text-sm transition-all">
                         </div>
                     </div>
@@ -450,17 +447,17 @@
                         <div>
                             <label for="airport" class="block text-sm font-semibold text-sumi mb-2" [innerHTML]="t('lbl_airport')"></label>
                             <select id="airport" name="airport" class="w-full px-4 py-3 rounded-xl bg-washi border border-stone-300 focus:border-torii focus:ring-2 focus:ring-torii/20 outline-none text-sm transition-all">
-                                <option value="Tokyo (NRT/HND) Giriş - Osaka (KIX) Çıkış">Tokyo Giriş → Osaka Çıkış</option>
-                                <option value="Tokyo (NRT/HND) Giriş - Tokyo Çıkış">Tokyo Giriş → Tokyo Çıkış</option>
-                                <option value="Osaka (KIX) Giriş - Tokyo (NRT/HND) Çıkış">Osaka Giriş → Tokyo Çıkış</option>
-                                <option value="Henüz Netleşmedi">Henüz Netleşmedi</option>
+                                <option value="Tokyo (NRT/HND) Giriş - Osaka (KIX) Çıkış">{{ t('airport_tokyo_osaka') }}</option>
+                                <option value="Tokyo (NRT/HND) Giriş - Tokyo Çıkış">{{ t('airport_tokyo_tokyo') }}</option>
+                                <option value="Osaka (KIX) Giriş - Tokyo (NRT/HND) Çıkış">{{ t('airport_osaka_tokyo') }}</option>
+                                <option value="Henüz Netleşmedi">{{ t('airport_undecided') }}</option>
                             </select>
                         </div>
                     </div>
 
                     <div>
                         <label for="notes" class="block text-sm font-semibold text-sumi mb-2" [innerHTML]="t('lbl_notes')"></label>
-                        <textarea id="notes" name="notes" maxlength="5000" rows="4" placeholder="Örn: 4 yıldızlı merkezi oteller, 1 gece Hakone Ryokan konaklaması, Türkçe veya İngilizce rehberlik talebi..."
+                        <textarea id="notes" name="notes" maxlength="5000" rows="4" [placeholder]="t('ph_notes')"
                                   class="w-full px-4 py-3 rounded-xl bg-washi border border-stone-300 focus:border-torii focus:ring-2 focus:ring-torii/20 outline-none text-sm transition-all"></textarea>
                     </div>
 
@@ -550,7 +547,7 @@
             </div>
 
             <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
-                <p>© 2026 EJDER JAPAN株式会社 (EJDER JAPAN Co., Ltd.). All Rights Reserved.</p>
+                <p>© 2026 EJDER JAPAN株式会社 (EJDER JAPAN Co., Ltd.). {{ t('rights') }}</p>
                 <p [innerHTML]="t('footer_note')"></p>
             </div>
         </div>
@@ -565,7 +562,7 @@
                     <span id="modal-badge" class="text-xs font-bold text-amber-400 uppercase tracking-wider">{{ itinerary()?.badge }}</span>
                     <h3 id="modal-title" class="font-serif text-2xl font-bold mt-1">{{ itinerary()?.title }}</h3>
                 </div>
-                <button (click)="closeItineraryModal()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors" aria-label="Kapat">
+                <button (click)="closeItineraryModal()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors" [attr.aria-label]="t('close_label')">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
