@@ -26,7 +26,7 @@ export const content = {
       "metric_2_title": "7/24 Yerel Operasyon",
       "metric_2_desc": "Japonya saat diliminde anlık saha desteği ve çok dilli koordinasyon.",
       "metric_3_title": "Resmi Japon Şirketi",
-      "metric_3_desc": "Japonya Ticaret Siciline kayıtlı ve fatura sistemine (T-No) tam uyumlu.",
+      "metric_3_desc": "Japonya Ticaret Siciline kayıtlı.",
       "services_kicker": "B2B & KURUMSAL ÇÖZÜMLER",
       "services_title": "Seyahat Acenteleri İçin Uçtan Uca Japonya DMC Hizmetleri",
       "services_subtitle": "Partner acentelerimizin markasını en iyi şekilde temsil eden, şeffaf maliyetli ve yüksek misafir memnuniyeti odaklı yer hizmetleri sunuyoruz.",
