@@ -35,7 +35,9 @@ test('only reports success after SMTP acceptance; fixed recipient and customer r
   assert.ok(message.text.includes(valid.travelDate));
   assert.ok(message.text.includes(valid.paxCount));
   assert.ok(message.text.includes('<script>alert(1)</script>'));
-  assert.equal(message.html, undefined);
+  assert.ok(message.html.includes('EJDER JAPAN'));
+  assert.ok(message.html.includes('&lt;script&gt;alert(1)&lt;/script&gt;'));
+  assert.ok(!message.html.includes('<script>'));
   assert.equal(transportClosed, true);
 });
 

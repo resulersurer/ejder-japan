@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import { renderInquiryEmail } from './inquiry-email.mjs';
 
 const mailbox = 'info@ejderjapan.com';
 const maxBytes = 24_000;
@@ -79,6 +80,7 @@ export function createInquiryHandler({ env = process.env, createTransport = node
         to: mailbox,
         replyTo: { name: data.agencyName, address: data.email },
         subject: 'EJDER JAPAN — Yeni Teklif / İş Birliği Talebi',
+        html: renderInquiryEmail(data),
         text: [
           'EJDER JAPAN K.K. (株式会社) — Web Formu', '',
           `Talep türü / Inquiry type: ${data.inquiryType}`,
