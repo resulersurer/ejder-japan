@@ -8,7 +8,7 @@
       "architect": {
         "build": {
           "builder": "@angular/build:application",
-          "options": { "browser": "src/main.ts", "tsConfig": "tsconfig.app.json", "index": "src/index.html", "outputPath": "dist/ejder-japan", "styles": ["src/styles.css"] },
+          "options": { "browser": "src/main.ts", "tsConfig": "tsconfig.app.json", "index": "src/index.html", "outputPath": "dist/ejder-japan", "assets": [{ "glob": "**/*", "input": "src/assets", "output": "assets" }], "styles": ["src/styles.css"] },
           "configurations": {
             "production": { "outputHashing": "all", "budgets": [{ "type": "initial", "maximumWarning": "600kB", "maximumError": "1MB" }], "optimization": { "scripts": true, "styles": { "minify": true, "inlineCritical": true }, "fonts": false } },
             "development": { "optimization": false, "sourceMap": true }
