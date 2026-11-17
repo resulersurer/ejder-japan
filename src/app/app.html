@@ -358,7 +358,7 @@
                 <div class="bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-10 backdrop-blur-sm">
                     <div class="grid grid-cols-2 gap-6 mb-8">
                         <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
-                            <p class="font-serif text-3xl sm:text-4xl font-bold text-amber-400">24-48s</p>
+                            <p class="font-serif text-3xl sm:text-4xl font-bold text-amber-400">24</p>
                             <p class="text-xs sm:text-sm text-stone-300 mt-2" [innerHTML]="t('stat_1')"></p>
                         </div>
                         <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
@@ -366,7 +366,7 @@
                             <p class="text-xs sm:text-sm text-stone-300 mt-2" [innerHTML]="t('stat_2')"></p>
                         </div>
                         <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
-                            <p class="font-serif text-3xl sm:text-4xl font-bold text-amber-400">4+ Dil</p>
+                            <p class="font-serif text-3xl sm:text-4xl font-bold text-amber-400" [innerHTML]="t('stat_3_value')"></p>
                             <p class="text-xs sm:text-sm text-stone-300 mt-2" [innerHTML]="t('stat_3')"></p>
                         </div>
                         <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
@@ -377,8 +377,7 @@
 
                     <div class="p-5 rounded-2xl bg-torii/20 border border-torii/40 flex items-center justify-between gap-4">
                         <div>
-                            <p class="text-sm font-bold text-white" [innerHTML]="t('partner_cta_t')"></p>
-                            <p class="text-xs text-stone-300 mt-0.5" [innerHTML]="t('partner_cta_d')"></p>
+                            <p class="text-sm text-stone-300" [innerHTML]="t('partner_cta_d')"></p>
                         </div>
                         <a href="#quote" class="px-4 py-2.5 rounded-xl bg-torii hover:bg-toriiDark text-white text-xs font-bold shrink-0 transition-colors" [innerHTML]="t('partner_cta_btn')"></a>
                     </div>
