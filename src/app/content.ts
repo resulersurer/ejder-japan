@@ -63,7 +63,7 @@ export const content = {
       "why_2_t": "Gerçekçi ve Akıcı Rota Mühendisliği",
       "why_2_d": "Kağıt üzerinde güzel görünen ama sahada yorucu olan programlar yerine, Shinkansen saatlerine ve bagaj lojistiğine tam uyumlu akışlar kurguluyoruz.",
       "why_3_t": "Şeffaf Fiyatlandırma & Hızlı Teklif Dönüşü",
-      "why_3_d": "Grup taleplerinize 24 saat içinde netleştirilmiş B2B net maliyet tablosuyla dönüş yapıyoruz.",
+      "why_3_d": "Grup taleplerinize 24 saat içinde netleştirilmiş fiyatlarla dönüş yapıyoruz.",
       "stat_1": "Ortalama B2B Teklif Hazırlama Süresi",
       "stat_2": "Japonya Yerleşik Resmi Operasyon",
       "stat_3_value": "3 Dil",
